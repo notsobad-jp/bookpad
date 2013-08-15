@@ -1,0 +1,22 @@
+%section#search
+  %h1.hide 検索エリア
+  .grid
+    .col_12
+      %form(method="post" action="/search")
+        %input(type="text" name="keyword" placeholder="本のタイトル、著者名、出版社名など" value="#{@keyword}")
+        %input(type="submit" value="検索する" class="button orange large")
+
+%section#result.grid
+  %h1.title SEARCH RESULT
+  - @result['Items'].each do |res|
+    .col_2
+      %div
+        %a(href="result/#{res['Item']['isbn']}")
+          %img(src="#{res['Item']['mediumImageUrl']}")
+          %p.left #{res["Item"]["title"]} / #{res["Item"]["author"]}
+      -# %div
+      -#   %a(href="result/#{res['Item']['isbn']}" class="button large green") 詳細を見る
+      %div.left.notice.success
+        %i.icon-ok-sign.icon-large
+        在庫あり
+

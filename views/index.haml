@@ -1,0 +1,23 @@
+%section#search
+  %h1.hide 検索エリア
+  .grid
+    .col_12
+      %form(method="post" action="/search")
+        %input(type="text" name="keyword" placeholder="本のタイトル、著者名、出版社名など")
+        %input(type="submit" value="検索する" class="button orange large")
+
+%section#popular.grid
+  %h1.title POPULAR BOOKS
+  .clearfix
+    .col_3
+      %img(src="../img/rec_1.jpg")
+      %a(href="") 永遠の0(ゼロ) / 百田直樹
+    .col_3
+      %img(src="../img/rec_2.jpg")
+      %a(href="") 未来の働き方を考えよう / ちきりん
+    .col_3
+      %img(src="../img/rec_3.jpg")
+      %a(href="") 騎手の一分 / 藤田伸二
+    .col_3
+      %img(src="../img/rec_4.jpg")
+      %a(href="") テルマエ・ロマエ(4) / ヤマザキマリ

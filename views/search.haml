@@ -6,8 +6,19 @@
         %input(type="text" name="keyword" placeholder="本のタイトル、著者名、出版社名など" value="#{@keyword}")
         %input(type="submit" value="検索する" class="button orange large")
 
+%section#breadcrumb
+  %ul.breadcrumb
+    %li
+      %a(href="#") ホーム
+    %li
+      %a(href="#") 検索結果
+    %li
+      %a(href="#") 本の詳細
+    %li
+      %a(href="#") 検索ワード：#{@keyword}
+
 %section#result.grid
-  %h1.title SEARCH RESULT
+  %h1.hide SEARCH RESULT
   - @result['Items'].each do |res|
     .col_2
       %div

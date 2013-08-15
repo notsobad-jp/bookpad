@@ -6,8 +6,19 @@
         %input(type="text" name="keyword" placeholder="本のタイトル、著者名、出版社名など" value="#{@keyword}")
         %input(type="submit" value="検索する" class="button orange large")
 
+%section#breadcrumb
+  %ul.breadcrumb
+    %li
+      %a(href="#") ホーム
+    %li
+      %a(href="#") 検索結果
+    %li
+      %a(href="#") 本の詳細
+    %li
+      %a(href="#") 選択した本：#{@result['Items'][0]['title']}
+
 %section#detail.grid
-  %h1.title BOOK DETAIL
+  %h1.hide BOOK DETAIL
   - res = @result['Items'][0]
   .col_4
     %div

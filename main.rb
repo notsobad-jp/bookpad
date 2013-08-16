@@ -36,18 +36,19 @@ post '/search' do
 end
 
 #書籍詳細画面
-get '/result/:isbn' do
-	isbn = params[:isbn]
-
-	app_id = 1094360803658595324
-  uri = URI.parse("https://app.rakuten.co.jp/services/api/BooksBook/Search/20130522?format=json&isbn=#{isbn}&applicationId=1094360803658595324")
-	json = Net::HTTP.get(uri)
-	@result = JSON.parse(json)
+post '/detail' do
+	@keyword = params[:keyword]
+	@isbn = params[:isbn]
+	@title = params[:title]
+	@author = params[:author]
+	@mediumImageUrl = params[:mediumImageUrl]
+	@publisherName = params[:publisherName]
+	@salesDate = params[:salesDate]
 
 	mech = Mechanize.new
 	mech.get("https://www.coopbooknavi.jp/zaik/book_search.php")
 	form = mech.page.form_with(:name => "frm")
-	form.field_with(:name => "isbn").value = isbn
+	form.field_with(:name => "isbn").value = @isbn
 	form.radiobutton_with(:value => "13036").check
 	form.submit
 	links = mech.page.links
@@ -56,5 +57,5 @@ get '/result/:isbn' do
 		@page.push(link) if link.href.index("hng")
 	end
 
-	haml :result
+	haml :detail
 end

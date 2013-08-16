@@ -4,18 +4,14 @@
     .col_12
       %form(method="post" action="/search")
         %input(type="text" name="keyword" placeholder="本のタイトル、著者名、出版社名など")
-        %input(type="submit" value="検索する" class="button orange large")
+        %input(type="submit" value="検索" class="button orange large")
 
 %section#breadcrumb
   %ul.breadcrumb
     %li
       %a(href="#") ホーム
-    -# %li
-    -#   %a(href="#") 検索結果
-    -# %li
-    -#   %a(href="#") 本の詳細
     %li#last_bread_1
-      %a(href="#") いま話題の本
+      %a(href="#") Topic: 最近よく読まれている本
 
 %section#popular.grid
   %h1.hide POPULAR BOOKS

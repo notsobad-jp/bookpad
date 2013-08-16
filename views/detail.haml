@@ -1,0 +1,48 @@
+%section#search
+  %h1.hide 検索エリア
+  .grid
+    .col_12
+      %form(method="post" action="/search")
+        %input(type="text" name="keyword" placeholder="本のタイトル、著者名、出版社名など" value="#{@keyword}")
+        %input(type="submit" value="検索" class="button orange large")
+
+%section#breadcrumb
+  %ul.breadcrumb
+    %li
+      %a(href="#") ホーム
+    %li
+      %a(href="#") 検索結果
+    %li
+      %a(href="#") 本の詳細
+    %li#last_bread_3
+      %a(href="#") Book: #{@title}
+
+%section#detail.grid
+  %h1.hide BOOK DETAIL
+  .col_4
+    %div
+      %img(src="#{@mediumImageUrl}")
+      %p
+        %label.col_3 タイトル：
+        %span #{@title}
+      %p
+        %label.col_3 著者名：
+        %span #{@author}
+      %p
+        %label.col_3 出版社：
+        %span #{@publisherName}
+      %p
+        %label.col_3 発売日：
+        %span #{@salesDate}
+    -if @page.empty?
+      %div.left.notice.error
+        %i.icon-remove-sign.icon-large
+        在庫なし
+    -else
+      %div.left.notice.success
+        %i.icon-ok-sign.icon-large
+        棚番号：
+        - @page.each do |p|
+          %span #{p}
+  .col_8
+    %img(src="../img/map.gif")

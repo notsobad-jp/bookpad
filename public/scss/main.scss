@@ -131,9 +131,8 @@ header {
 	.notice {
 		padding: 6px 20px 5px 35px;
 	}
-	p {
-		min-height: 38px;
-	}
+	p { min-height: 38px; }
+	input[type="submit"] { width: 100%; }
 }
 
 

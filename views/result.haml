@@ -14,8 +14,8 @@
       %a(href="#") 検索結果
     %li
       %a(href="#") 本の詳細
-    %li
-      %a(href="#") 選択した本：#{@result['Items'][0]['title']}
+    %li#last_bread_3
+      %a(href="#") 選択した本：#{@result['Items'][0]['Item']['title']}
 
 %section#detail.grid
   %h1.hide BOOK DETAIL

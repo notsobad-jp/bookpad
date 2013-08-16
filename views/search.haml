@@ -12,9 +12,9 @@
       %a(href="#") ホーム
     %li
       %a(href="#") 検索結果
-    %li
-      %a(href="#") 本の詳細
-    %li
+    -# %li
+    -#   %a(href="#") 本の詳細
+    %li#last_bread_2
       %a(href="#") 検索ワード：#{@keyword}
 
 %section#result.grid
@@ -27,7 +27,7 @@
           %p.left #{res["Item"]["title"]} / #{res["Item"]["author"]}
       -# %div
       -#   %a(href="result/#{res['Item']['isbn']}" class="button large green") 詳細を見る
-      %div.left.notice.success
-        %i.icon-ok-sign.icon-large
-        在庫あり
+      %div.left.notice.warning
+        %i.icon-spinner.icon-large
+        在庫検索中..
 

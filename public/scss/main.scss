@@ -38,6 +38,10 @@ section { margin-bottom: 50px !important; }
 	margin-left: 10px;
 }
 
+.grid {
+	max-width: 100%;
+}
+
 
 /*****************************************************************
 * HEADER
@@ -107,6 +111,15 @@ header {
 *****************************************************************/
 #popular {
 	text-align: center;
+	img {
+		margin: 0 auto;
+		width: 80%;
+	}
+	.bx-viewport {
+		box-shadow: none;
+		border: none;
+		background: none;
+	}
 }
 
 
@@ -117,6 +130,9 @@ header {
 	text-align: center;
 	.notice {
 		padding: 6px 20px 5px 35px;
+	}
+	p {
+		min-height: 38px;
 	}
 }
 
@@ -150,6 +166,9 @@ header {
 	}
 }
 
+#last_bread_1 { width: 90%; }
+#last_bread_2 { width: 78%; }
+#last_bread_3 { width: 66%; }
 
 	.breadcrumb {
 		list-style: none;
@@ -160,7 +179,6 @@ header {
 		padding: 0;
 		width: 12%;
 		&:last-child {
-			width: 66%;
 			background: #EEE;
 		}
 		&:first-child {
@@ -208,7 +226,7 @@ header {
 		z-index: 1;
 	}
 	.breadcrumb li:first-child a {
-		padding-left: 10px;
+		padding-left: 40px;
 	}
 	.breadcrumb li:nth-child(2) a       { background:        hsla(34,85%,45%,1); }
 	.breadcrumb li:nth-child(2) a:after { border-left-color: hsla(34,85%,45%,1); }

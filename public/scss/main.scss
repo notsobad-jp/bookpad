@@ -160,9 +160,8 @@ header {
 	border-bottom: 2px solid #DDD;
 	padding-top: 2px;
 	padding-bottom: 2px;
-	ul {
-		margin-bottom: 0;
-	}
+	ul { margin-bottom: 0; }
+	a { cursor: default; }
 }
 
 #last_bread_1 { width: 90%; }
@@ -242,7 +241,7 @@ header {
 		cursor: default;
 	}
 	.breadcrumb li:last-child a:after { border: 0; }
-	.breadcrumb li a:hover { background: hsla(34,85%,25%,1); }
-	.breadcrumb li a:hover:after { border-left-color: hsla(34,85%,25%,1) !important; }
+	// .breadcrumb li a:hover { background: hsla(34,85%,25%,1); }
+	// .breadcrumb li a:hover:after { border-left-color: hsla(34,85%,25%,1) !important; }
 
 

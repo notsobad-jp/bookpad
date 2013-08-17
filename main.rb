@@ -59,3 +59,21 @@ post '/detail' do
 
 	haml :detail
 end
+
+//お店の在庫検索(ajaxで呼び出し)
+get '/stock_search/:isbn' do
+	mech = Mechanize.new
+	mech.get("https://www.coopbooknavi.jp/zaik/book_search.php")
+	form = mech.page.form_with(:name => "frm")
+	form.field_with(:name => "isbn").value = params[:isbn]
+	form.radiobutton_with(:value => "13036").check
+	form.submit
+	links = mech.page.links
+	@page = Array.new
+	links.each do |link|
+		@page.push(link) if link.href.index("hng")
+	end
+
+	@result = (@page.empty?) ? "1" : "2"
+	return @result
+end

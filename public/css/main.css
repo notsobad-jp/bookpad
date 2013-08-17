@@ -192,44 +192,48 @@ header li:last-child {
 #breadcrumb ul {
   margin-bottom: 0;
 }
+/* line 164, ../scss/main.scss */
+#breadcrumb a {
+  cursor: default;
+}
 
-/* line 168, ../scss/main.scss */
+/* line 167, ../scss/main.scss */
 #last_bread_1 {
   width: 90%;
 }
 
-/* line 169, ../scss/main.scss */
+/* line 168, ../scss/main.scss */
 #last_bread_2 {
   width: 78%;
 }
 
-/* line 170, ../scss/main.scss */
+/* line 169, ../scss/main.scss */
 #last_bread_3 {
   width: 66%;
 }
 
-/* line 172, ../scss/main.scss */
+/* line 171, ../scss/main.scss */
 .breadcrumb {
   list-style: none;
   overflow: hidden;
 }
 
-/* line 176, ../scss/main.scss */
+/* line 175, ../scss/main.scss */
 .breadcrumb li {
   float: left;
   padding: 0;
   width: 12%;
 }
-/* line 180, ../scss/main.scss */
+/* line 179, ../scss/main.scss */
 .breadcrumb li:last-child {
   background: #EEE;
 }
-/* line 183, ../scss/main.scss */
+/* line 182, ../scss/main.scss */
 .breadcrumb li:first-child {
   width: 10%;
 }
 
-/* line 187, ../scss/main.scss */
+/* line 186, ../scss/main.scss */
 .breadcrumb li a {
   color: white;
   width: 100%;
@@ -243,7 +247,7 @@ header li:last-child {
   float: left;
 }
 
-/* line 198, ../scss/main.scss */
+/* line 197, ../scss/main.scss */
 .breadcrumb li a:after {
   content: " ";
   display: block;
@@ -260,7 +264,7 @@ header li:last-child {
   z-index: 2;
 }
 
-/* line 212, ../scss/main.scss */
+/* line 211, ../scss/main.scss */
 .breadcrumb li a:before {
   content: " ";
   display: block;
@@ -278,52 +282,52 @@ header li:last-child {
   z-index: 1;
 }
 
-/* line 227, ../scss/main.scss */
+/* line 226, ../scss/main.scss */
 .breadcrumb li:first-child a {
   padding-left: 40px;
 }
 
-/* line 230, ../scss/main.scss */
+/* line 229, ../scss/main.scss */
 .breadcrumb li:nth-child(2) a {
   background: #d48011;
 }
 
-/* line 231, ../scss/main.scss */
+/* line 230, ../scss/main.scss */
 .breadcrumb li:nth-child(2) a:after {
   border-left-color: #d48011;
 }
 
-/* line 232, ../scss/main.scss */
+/* line 231, ../scss/main.scss */
 .breadcrumb li:nth-child(3) a {
   background: #ee992b;
 }
 
-/* line 233, ../scss/main.scss */
+/* line 232, ../scss/main.scss */
 .breadcrumb li:nth-child(3) a:after {
   border-left-color: #ee992b;
 }
 
-/* line 234, ../scss/main.scss */
+/* line 233, ../scss/main.scss */
 .breadcrumb li:nth-child(4) a {
   background: #f2b05a;
 }
 
-/* line 235, ../scss/main.scss */
+/* line 234, ../scss/main.scss */
 .breadcrumb li:nth-child(4) a:after {
   border-left-color: #f2b05a;
 }
 
-/* line 236, ../scss/main.scss */
+/* line 235, ../scss/main.scss */
 .breadcrumb li:nth-child(5) a {
   background: #f5c689;
 }
 
-/* line 237, ../scss/main.scss */
+/* line 236, ../scss/main.scss */
 .breadcrumb li:nth-child(5) a:after {
   border-left-color: #f5c689;
 }
 
-/* line 238, ../scss/main.scss */
+/* line 237, ../scss/main.scss */
 .breadcrumb li:last-child a {
   background: transparent !important;
   color: black;
@@ -331,17 +335,7 @@ header li:last-child {
   cursor: default;
 }
 
-/* line 244, ../scss/main.scss */
+/* line 243, ../scss/main.scss */
 .breadcrumb li:last-child a:after {
   border: 0;
-}
-
-/* line 245, ../scss/main.scss */
-.breadcrumb li a:hover {
-  background: #76470a;
-}
-
-/* line 246, ../scss/main.scss */
-.breadcrumb li a:hover:after {
-  border-left-color: #76470a !important;
 }

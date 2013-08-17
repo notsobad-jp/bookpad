@@ -23,16 +23,16 @@
     %div
       %img(src="#{@mediumImageUrl}")
       %p
-        %label.col_3 タイトル：
+        %label タイトル：
         %span #{@title}
       %p
-        %label.col_3 著者名：
+        %label 著 者 名：
         %span #{@author}
       %p
-        %label.col_3 出版社：
+        %label 出 版 社：
         %span #{@publisherName}
       %p
-        %label.col_3 発売日：
+        %label 発 売 日：
         %span #{@salesDate}
     -if @page.empty?
       %div.left.notice.error

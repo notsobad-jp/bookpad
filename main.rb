@@ -60,7 +60,7 @@ post '/detail' do
 	haml :detail
 end
 
-//お店の在庫検索(ajaxで呼び出し)
+#お店の在庫検索(ajaxで呼び出し)
 get '/stock_search/:isbn' do
 	mech = Mechanize.new
 	mech.get("https://www.coopbooknavi.jp/zaik/book_search.php")

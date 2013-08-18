@@ -7,6 +7,11 @@ require 'open-uri'
 require 'iconv'
 require 'mechanize'
 
+#本番ではnewrelic使用
+configure :production do
+  require 'newrelic_rpm'
+end
+
 #ヘルパー
 helpers do
 	include Rack::Utils

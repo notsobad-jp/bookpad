@@ -7,7 +7,6 @@ $(function(){
 		$.ajax({
 			url: "/stock_search/" + isbn,
 		}).done(function(data){
-			console.log(i);
 			//在庫なし
 			if(data == 1) {
 				$(this).find('div').addClass("error").removeClass("warning");
@@ -16,7 +15,7 @@ $(function(){
 				$(this).find('div.notice').addClass("success").removeClass("warning");
 			}
 		}).fail(function(data){
-			alert('error!!!');
+			// alert('error!!!');
 		});
 	});
 });

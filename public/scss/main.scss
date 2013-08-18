@@ -41,9 +41,9 @@ section { margin-bottom: 50px !important; }
 	margin-left: 10px;
 }
 
-.grid {
-	max-width: 100%;
-}
+.grid { max-width: 100%; }
+
+.btn-100 { width: 100%; }
 
 
 /*****************************************************************
@@ -114,14 +114,13 @@ header {
 *****************************************************************/
 #popular {
 	text-align: center;
-	img {
-		margin: 0 auto;
-		width: 80%;
-	}
 	.bx-viewport {
 		box-shadow: none;
 		border: none;
 		background: none;
+	}
+	.title {
+		font-size: large;
 	}
 }
 

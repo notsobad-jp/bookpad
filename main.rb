@@ -23,10 +23,13 @@ get '/css/main.css' do
   scss :'scss/main'
 end
 
+
+
 #トップページ
 get '/' do
 	haml :index
 end
+
 
 #検索結果画面
 post '/search' do
@@ -39,6 +42,7 @@ post '/search' do
 	@result = JSON.parse(json)
 	haml :search
 end
+
 
 #書籍詳細画面
 post '/detail' do
@@ -64,6 +68,13 @@ post '/detail' do
 
 	haml :detail
 end
+
+
+#aboutページ
+get '/about' do
+	haml :about, :layout => false
+end
+
 
 #お店の在庫検索(ajaxで呼び出し)
 get '/stock_search/:isbn' do

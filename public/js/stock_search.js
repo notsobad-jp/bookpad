@@ -15,7 +15,7 @@ $(function(){
 				$(this).find('div.notice').addClass("success").removeClass("warning");
 			}
 		}).fail(function(data){
-			// alert('error!!!');
+			// alert("new error");
 		});
 	});
 });

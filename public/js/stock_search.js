@@ -1,4 +1,10 @@
 $(function(){
+	//テキスト行数揃えて...で省略
+	$(".col_2 p").trunk8({
+		fill: '...'
+	});
+
+
 	var i = 0;
 	$.each($(".col_2"), function(){
 		i++;

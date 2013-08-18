@@ -25,7 +25,7 @@
         %p
           %strong #{res["Item"]["title"]}
           %br
-          %span  (#{res["Item"]["author"]})
+          %span  (#{res["Item"]["author"] || "著者名なし"})
 
       %div.left.notice.warning
         %i.icon-spinner.icon-large

@@ -15,20 +15,25 @@ body {
 }
 
 /* line 23, ../scss/main.scss */
+* {
+  -webkit-user-select: none;
+}
+
+/* line 25, ../scss/main.scss */
 ul {
   margin-left: 0;
 }
-/* line 25, ../scss/main.scss */
+/* line 27, ../scss/main.scss */
 ul li {
   list-style: none;
 }
 
-/* line 28, ../scss/main.scss */
+/* line 30, ../scss/main.scss */
 section {
   margin-bottom: 50px !important;
 }
 
-/* line 30, ../scss/main.scss */
+/* line 32, ../scss/main.scss */
 .title {
   text-align: left;
   font-size: x-large;
@@ -40,7 +45,7 @@ section {
   margin-left: 10px;
 }
 
-/* line 41, ../scss/main.scss */
+/* line 43, ../scss/main.scss */
 .grid {
   max-width: 100%;
 }
@@ -48,7 +53,7 @@ section {
 /*****************************************************************
 * HEADER
 *****************************************************************/
-/* line 49, ../scss/main.scss */
+/* line 51, ../scss/main.scss */
 header {
   background: #336774;
   position: relative;
@@ -58,7 +63,7 @@ header {
   -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 0;
   box-shadow: rgba(0, 0, 0, 0.2) 0 1px 0;
 }
-/* line 55, ../scss/main.scss */
+/* line 57, ../scss/main.scss */
 header h1 {
   font-size: xx-large;
   font-weight: normal;
@@ -68,16 +73,16 @@ header h1 {
   text-align: center;
   line-height: 70px;
 }
-/* line 64, ../scss/main.scss */
+/* line 66, ../scss/main.scss */
 header li {
   position: absolute;
   top: 12px;
 }
-/* line 67, ../scss/main.scss */
+/* line 69, ../scss/main.scss */
 header li:first-child {
   left: 10px;
 }
-/* line 70, ../scss/main.scss */
+/* line 72, ../scss/main.scss */
 header li:last-child {
   right: 10px;
 }
@@ -85,7 +90,7 @@ header li:last-child {
 /*****************************************************************
 * TOP
 *****************************************************************/
-/* line 80, ../scss/main.scss */
+/* line 82, ../scss/main.scss */
 #search {
   margin-bottom: 0 !important;
   padding: 70px 0;
@@ -93,25 +98,25 @@ header li:last-child {
   overflow: hidden;
   text-align: center;
 }
-/* line 86, ../scss/main.scss */
+/* line 88, ../scss/main.scss */
 #search input {
   height: 45px;
   font-size: x-large;
 }
-/* line 90, ../scss/main.scss */
+/* line 92, ../scss/main.scss */
 #search input::-webkit-input-placeholder {
   font-size: medium;
   padding-top: 5px;
   color: #CCC;
 }
-/* line 95, ../scss/main.scss */
+/* line 97, ../scss/main.scss */
 #search input[type="text"] {
   margin-top: 0;
   margin-left: 0;
   padding-left: 15px;
   width: 60%;
 }
-/* line 101, ../scss/main.scss */
+/* line 103, ../scss/main.scss */
 #search input[type="submit"] {
   font-size: 1.5em;
   padding-left: 40px;
@@ -121,16 +126,16 @@ header li:last-child {
 /*****************************************************************
 * POPULAR BOOKS
 *****************************************************************/
-/* line 112, ../scss/main.scss */
+/* line 114, ../scss/main.scss */
 #popular {
   text-align: center;
 }
-/* line 114, ../scss/main.scss */
+/* line 116, ../scss/main.scss */
 #popular img {
   margin: 0 auto;
   width: 80%;
 }
-/* line 118, ../scss/main.scss */
+/* line 120, ../scss/main.scss */
 #popular .bx-viewport {
   box-shadow: none;
   border: none;
@@ -140,39 +145,47 @@ header li:last-child {
 /*****************************************************************
 * RESULT
 *****************************************************************/
-/* line 129, ../scss/main.scss */
+/* line 131, ../scss/main.scss */
 #result {
   text-align: center;
 }
-/* line 131, ../scss/main.scss */
+/* line 133, ../scss/main.scss */
 #result .notice {
   padding: 6px 20px 5px 35px;
 }
-/* line 134, ../scss/main.scss */
+/* line 136, ../scss/main.scss */
 #result p {
   min-height: 38px;
 }
-/* line 135, ../scss/main.scss */
+/* line 137, ../scss/main.scss */
 #result input[type="submit"] {
   width: 100%;
+}
+/* line 138, ../scss/main.scss */
+#result img {
+  min-height: 168px;
+}
+/* line 139, ../scss/main.scss */
+#result .col_2 {
+  margin-bottom: 30px;
 }
 
 /*****************************************************************
 * DETAIL
 *****************************************************************/
-/* line 143, ../scss/main.scss */
+/* line 149, ../scss/main.scss */
 #detail label {
   margin-top: 0;
 }
-/* line 144, ../scss/main.scss */
+/* line 150, ../scss/main.scss */
 #detail span {
   font-weight: bold;
 }
-/* line 145, ../scss/main.scss */
+/* line 151, ../scss/main.scss */
 #detail .notice span {
   font-size: large;
 }
-/* line 146, ../scss/main.scss */
+/* line 152, ../scss/main.scss */
 #detail .col_8 img {
   width: 100%;
 }
@@ -181,59 +194,59 @@ header li:last-child {
 * BREADCRUMB
 * (c.f. http://coliss.com/articles/build-websites/operation/css/css-tutorial-breadcrumbs-with-css-triangle.html)
 *****************************************************************/
-/* line 158, ../scss/main.scss */
+/* line 164, ../scss/main.scss */
 #breadcrumb {
   border-top: 2px solid #DDD;
   border-bottom: 2px solid #DDD;
   padding-top: 2px;
   padding-bottom: 2px;
 }
-/* line 163, ../scss/main.scss */
+/* line 169, ../scss/main.scss */
 #breadcrumb ul {
   margin-bottom: 0;
 }
-/* line 164, ../scss/main.scss */
+/* line 170, ../scss/main.scss */
 #breadcrumb a {
   cursor: default;
 }
 
-/* line 167, ../scss/main.scss */
+/* line 173, ../scss/main.scss */
 #last_bread_1 {
   width: 90%;
 }
 
-/* line 168, ../scss/main.scss */
+/* line 174, ../scss/main.scss */
 #last_bread_2 {
   width: 78%;
 }
 
-/* line 169, ../scss/main.scss */
+/* line 175, ../scss/main.scss */
 #last_bread_3 {
   width: 66%;
 }
 
-/* line 171, ../scss/main.scss */
+/* line 177, ../scss/main.scss */
 .breadcrumb {
   list-style: none;
   overflow: hidden;
 }
 
-/* line 175, ../scss/main.scss */
+/* line 181, ../scss/main.scss */
 .breadcrumb li {
   float: left;
   padding: 0;
   width: 12%;
 }
-/* line 179, ../scss/main.scss */
+/* line 185, ../scss/main.scss */
 .breadcrumb li:last-child {
   background: #EEE;
 }
-/* line 182, ../scss/main.scss */
+/* line 188, ../scss/main.scss */
 .breadcrumb li:first-child {
   width: 10%;
 }
 
-/* line 186, ../scss/main.scss */
+/* line 192, ../scss/main.scss */
 .breadcrumb li a {
   color: white;
   width: 100%;
@@ -247,7 +260,7 @@ header li:last-child {
   float: left;
 }
 
-/* line 197, ../scss/main.scss */
+/* line 203, ../scss/main.scss */
 .breadcrumb li a:after {
   content: " ";
   display: block;
@@ -264,7 +277,7 @@ header li:last-child {
   z-index: 2;
 }
 
-/* line 211, ../scss/main.scss */
+/* line 217, ../scss/main.scss */
 .breadcrumb li a:before {
   content: " ";
   display: block;
@@ -282,52 +295,52 @@ header li:last-child {
   z-index: 1;
 }
 
-/* line 226, ../scss/main.scss */
+/* line 232, ../scss/main.scss */
 .breadcrumb li:first-child a {
   padding-left: 40px;
 }
 
-/* line 229, ../scss/main.scss */
+/* line 235, ../scss/main.scss */
 .breadcrumb li:nth-child(2) a {
   background: #d48011;
 }
 
-/* line 230, ../scss/main.scss */
+/* line 236, ../scss/main.scss */
 .breadcrumb li:nth-child(2) a:after {
   border-left-color: #d48011;
 }
 
-/* line 231, ../scss/main.scss */
+/* line 237, ../scss/main.scss */
 .breadcrumb li:nth-child(3) a {
   background: #ee992b;
 }
 
-/* line 232, ../scss/main.scss */
+/* line 238, ../scss/main.scss */
 .breadcrumb li:nth-child(3) a:after {
   border-left-color: #ee992b;
 }
 
-/* line 233, ../scss/main.scss */
+/* line 239, ../scss/main.scss */
 .breadcrumb li:nth-child(4) a {
   background: #f2b05a;
 }
 
-/* line 234, ../scss/main.scss */
+/* line 240, ../scss/main.scss */
 .breadcrumb li:nth-child(4) a:after {
   border-left-color: #f2b05a;
 }
 
-/* line 235, ../scss/main.scss */
+/* line 241, ../scss/main.scss */
 .breadcrumb li:nth-child(5) a {
   background: #f5c689;
 }
 
-/* line 236, ../scss/main.scss */
+/* line 242, ../scss/main.scss */
 .breadcrumb li:nth-child(5) a:after {
   border-left-color: #f5c689;
 }
 
-/* line 237, ../scss/main.scss */
+/* line 243, ../scss/main.scss */
 .breadcrumb li:last-child a {
   background: transparent !important;
   color: black;
@@ -335,7 +348,7 @@ header li:last-child {
   cursor: default;
 }
 
-/* line 243, ../scss/main.scss */
+/* line 249, ../scss/main.scss */
 .breadcrumb li:last-child a:after {
   border: 0;
 }

@@ -1,6 +1,6 @@
 require 'bundler'
 Bundler.require
-use AppMetric
+require './lib/app_metric'
 
 require './main'
 run Sinatra::Application

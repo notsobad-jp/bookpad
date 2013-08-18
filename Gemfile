@@ -14,3 +14,5 @@ gem 'haml'
 gem 'sass'
 gem 'coffee-script'
 gem 'compass'
+
+gem 'newrelic_rpm'

@@ -61,6 +61,7 @@ GEM
     multi_json (1.7.9)
     net-http-digest_auth (1.4)
     net-http-persistent (2.9)
+    newrelic_rpm (3.6.6.147)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
     ntlm-http (0.1.1)
@@ -106,6 +107,7 @@ DEPENDENCIES
   haml
   iconv
   mechanize
+  newrelic_rpm
   sass
   sinatra
   sinatra-contrib

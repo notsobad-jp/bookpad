@@ -278,7 +278,7 @@ header li:last-child {
   position: absolute;
   top: 50%;
   margin-top: -50px;
-  left: 100%;
+  left: 99%;
   z-index: 2;
 }
 

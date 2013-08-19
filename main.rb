@@ -39,7 +39,7 @@ post '/search' do
 
 	@keyword = params[:keyword]
 	encoded_keyword = URI.escape(@keyword)
-	app_id = 1094360803658595324
+	app_id = ENV["RAKUTEN_KEY"]
 
 	uri = URI.parse("https://app.rakuten.co.jp/services/api/BooksTotal/Search/20130522?format=json&keyword=#{encoded_keyword}&booksGenreId=000&applicationId=#{app_id}")
 	json = Net::HTTP.get(uri)

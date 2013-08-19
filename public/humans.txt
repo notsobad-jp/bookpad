@@ -1,0 +1,18 @@
+# TXT for Human Beings
+
+## SITE
+
+- Name : BOOK PAD
+- Pronounciation : ブックパッド
+- URL : http://bookpad.me/
+- Markup : HTML5+CSS3
+- Contents : iPad based Book searching service for book stores.
+- Release Date : 2013/09/01
+
+## PERSONAL
+
+- Name : Tomomichi Onishi
+- Job : Web Developer, CEO of NOT SO BAD,LLC.
+- Twitter : @kame_f_no7
+- Mail : tomomichi.onishi@gmail.com
+- Favorite : Books, Web, Zen Buddhism

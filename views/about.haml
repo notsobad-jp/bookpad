@@ -3,29 +3,7 @@
   %head
     = haml :"shared/_meta_about"
   %body
-    %header
-      .div
-        %h1
-          %a(href="index.html") BOOK PAD
-        %small BETA
-      %nav
-        %ul
-          %li
-            %a(href="#benefit")
-              %i(class="icon-double-angle-right")
-              サービスの特長
-          %li
-            %a(href="#flow")
-              %i(class="icon-double-angle-right")
-              ご利用の流れ
-          %li
-            %a(href="#price")
-              %i(class="icon-double-angle-right")
-              料金プラン
-          %li
-            %a(href="#faq")
-              %i(class="icon-double-angle-right")
-              よくある質問
+    = haml :"shared/_header_about"
 
     %div(id="container")
       %section(id="about")
@@ -153,30 +131,5 @@
             事業の収益源としては、今後より高度なサービス、複数店舗への導入などに対応した有料プランを提供することを想定しています。<br>
             （有料プラン開始後も、現在提供中のサービスはそのまま無料でお使いいただけます。）
 
-    <!-- Footer -->
-    %footer
-      %h1(class="hide") フッター
-      .grid.clearfix
-        .col_4
-          %h2 About Us
-          %ul
-            %li 運営者：Tomomichi Onishi
-            %li Mail：info@eure-ka.me
-            %li
-              Web：
-              %a(href="http://www.enthuse.me/kame_f_no7#/" target="_blank") http://www.enthuse.me/kame_f_no7#
-        .col_4
-          %h2 Links
-          %ul
-            %li
-              %i(class="icon-double-angle-right")
-              書店の方へ
-            %li
-              %i(class="icon-double-angle-right")
-              プライバシーポリシー
-            %li
-              %i(class="icon-double-angle-right")
-              特定商取引法に基づく表示
-        .col_4
-          %h2 Facebook
-          .fb-like-box(data-href="https://www.facebook.com/ComicSurprise" data-width="292" data-height="260" data-show-faces="true" data-stream="false" data-show-border="true" data-header="true")
+    = haml :"shared/_footer_about"
+    = haml :"shared/_analytics"

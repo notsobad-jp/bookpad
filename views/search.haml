@@ -25,11 +25,11 @@
         %p
           %strong #{res["Item"]["title"]}
           %br
-          %span  (#{res["Item"]["author"] || "著者名なし"})
+          (#{res["Item"]["author"] || "著者名なし"})
 
       %div.left.notice.warning
         %i.icon-spinner.icon-large
-        在庫検索中..
+        %span 在庫検索中..
 
       %div
         %form(method="post" action="/detail")
@@ -40,6 +40,7 @@
           %input(type="hidden" name="mediumImageUrl" value="#{res['Item']['mediumImageUrl']}")
           %input(type="hidden" name="publisherName" value="#{res['Item']['publisherName']}")
           %input(type="hidden" name="salesDate" value="#{res['Item']['salesDate']}")
+          %input(type="hidden" name="stock" value="")
           %input(type="submit" value="詳細を見る" class="button")
 
 %script(src="js/stock_search.js")

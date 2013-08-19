@@ -13,3 +13,68 @@
 [08/18/13 14:55:56 +0900 MBP.local (3763)] INFO : Installing deferred Rack instrumentation
 [08/18/13 14:55:56 +0900 MBP.local (3763)] INFO : Finished instrumentation
 [08/18/13 14:55:57 +0900 MBP.local (3763)] INFO : Doing deferred dependency-detection before Rack startup
+[08/18/13 17:54:44 +0900 MBP.local (558)] INFO : Starting the New Relic agent in "development" environment.
+[08/18/13 17:54:44 +0900 MBP.local (558)] INFO : To prevent agent startup add a NEWRELIC_ENABLE=false environment variable or modify the "development" section of your newrelic.yml.
+[08/18/13 17:54:44 +0900 MBP.local (558)] INFO : Reading configuration from config/newrelic.yml
+[08/18/13 17:54:44 +0900 MBP.local (558)] INFO : Enabling the Request Sampler.
+[08/18/13 17:54:44 +0900 MBP.local (558)] INFO : Environment: development
+[08/18/13 17:54:44 +0900 MBP.local (558)] INFO : Dispatcher: thin
+[08/18/13 17:54:44 +0900 MBP.local (558)] INFO : Application: My Application
+[08/18/13 17:54:44 +0900 MBP.local (558)] WARN : Agent configured not to send data in this environment.
+[08/18/13 17:54:44 +0900 MBP.local (558)] INFO : Installing Net instrumentation
+[08/18/13 17:54:44 +0900 MBP.local (558)] INFO : Installing Sinatra instrumentation
+[08/18/13 17:54:44 +0900 MBP.local (558)] INFO : Installing deferred Rack instrumentation
+[08/18/13 17:54:44 +0900 MBP.local (558)] INFO : Finished instrumentation
+[08/18/13 17:54:44 +0900 MBP.local (558)] INFO : Doing deferred dependency-detection before Rack startup
+[08/18/13 22:23:24 +0900 MBP.local (1139)] INFO : Starting the New Relic agent in "development" environment.
+[08/18/13 22:23:24 +0900 MBP.local (1139)] INFO : To prevent agent startup add a NEWRELIC_ENABLE=false environment variable or modify the "development" section of your newrelic.yml.
+[08/18/13 22:23:24 +0900 MBP.local (1139)] INFO : Reading configuration from config/newrelic.yml
+[08/18/13 22:23:24 +0900 MBP.local (1139)] INFO : Enabling the Request Sampler.
+[08/18/13 22:23:24 +0900 MBP.local (1139)] INFO : Environment: development
+[08/18/13 22:23:24 +0900 MBP.local (1139)] INFO : Dispatcher: thin
+[08/18/13 22:23:24 +0900 MBP.local (1139)] INFO : Application: My Application
+[08/18/13 22:23:24 +0900 MBP.local (1139)] WARN : Agent configured not to send data in this environment.
+[08/18/13 22:23:25 +0900 MBP.local (1139)] INFO : Installing Net instrumentation
+[08/18/13 22:23:25 +0900 MBP.local (1139)] INFO : Installing Sinatra instrumentation
+[08/18/13 22:23:25 +0900 MBP.local (1139)] INFO : Installing deferred Rack instrumentation
+[08/18/13 22:23:25 +0900 MBP.local (1139)] INFO : Finished instrumentation
+[08/18/13 22:23:25 +0900 MBP.local (1139)] INFO : Doing deferred dependency-detection before Rack startup
+[08/19/13 07:55:04 +0900 MBP.local (1284)] INFO : Starting the New Relic agent in "development" environment.
+[08/19/13 07:55:04 +0900 MBP.local (1284)] INFO : To prevent agent startup add a NEWRELIC_ENABLE=false environment variable or modify the "development" section of your newrelic.yml.
+[08/19/13 07:55:04 +0900 MBP.local (1284)] INFO : Reading configuration from config/newrelic.yml
+[08/19/13 07:55:04 +0900 MBP.local (1284)] INFO : Enabling the Request Sampler.
+[08/19/13 07:55:04 +0900 MBP.local (1284)] INFO : Environment: development
+[08/19/13 07:55:04 +0900 MBP.local (1284)] INFO : Dispatcher: thin
+[08/19/13 07:55:04 +0900 MBP.local (1284)] INFO : Application: My Application
+[08/19/13 07:55:04 +0900 MBP.local (1284)] WARN : Agent configured not to send data in this environment.
+[08/19/13 07:55:04 +0900 MBP.local (1284)] INFO : Installing Net instrumentation
+[08/19/13 07:55:04 +0900 MBP.local (1284)] INFO : Installing Sinatra instrumentation
+[08/19/13 07:55:04 +0900 MBP.local (1284)] INFO : Installing deferred Rack instrumentation
+[08/19/13 07:55:04 +0900 MBP.local (1284)] INFO : Finished instrumentation
+[08/19/13 07:55:04 +0900 MBP.local (1284)] INFO : Doing deferred dependency-detection before Rack startup
+[08/19/13 08:56:22 +0900 MBP.local (1366)] INFO : Starting the New Relic agent in "development" environment.
+[08/19/13 08:56:22 +0900 MBP.local (1366)] INFO : To prevent agent startup add a NEWRELIC_ENABLE=false environment variable or modify the "development" section of your newrelic.yml.
+[08/19/13 08:56:22 +0900 MBP.local (1366)] INFO : Reading configuration from config/newrelic.yml
+[08/19/13 08:56:22 +0900 MBP.local (1366)] INFO : Enabling the Request Sampler.
+[08/19/13 08:56:22 +0900 MBP.local (1366)] INFO : Environment: development
+[08/19/13 08:56:22 +0900 MBP.local (1366)] INFO : Dispatcher: thin
+[08/19/13 08:56:22 +0900 MBP.local (1366)] INFO : Application: My Application
+[08/19/13 08:56:22 +0900 MBP.local (1366)] WARN : Agent configured not to send data in this environment.
+[08/19/13 08:56:22 +0900 MBP.local (1366)] INFO : Installing Net instrumentation
+[08/19/13 08:56:22 +0900 MBP.local (1366)] INFO : Installing Sinatra instrumentation
+[08/19/13 08:56:22 +0900 MBP.local (1366)] INFO : Installing deferred Rack instrumentation
+[08/19/13 08:56:22 +0900 MBP.local (1366)] INFO : Finished instrumentation
+[08/19/13 08:56:22 +0900 MBP.local (1366)] INFO : Doing deferred dependency-detection before Rack startup
+[08/19/13 09:00:42 +0900 MBP.local (626)] INFO : Starting the New Relic agent in "development" environment.
+[08/19/13 09:00:42 +0900 MBP.local (626)] INFO : To prevent agent startup add a NEWRELIC_ENABLE=false environment variable or modify the "development" section of your newrelic.yml.
+[08/19/13 09:00:42 +0900 MBP.local (626)] INFO : Reading configuration from config/newrelic.yml
+[08/19/13 09:00:42 +0900 MBP.local (626)] INFO : Enabling the Request Sampler.
+[08/19/13 09:00:42 +0900 MBP.local (626)] INFO : Environment: development
+[08/19/13 09:00:42 +0900 MBP.local (626)] INFO : Dispatcher: thin
+[08/19/13 09:00:42 +0900 MBP.local (626)] INFO : Application: My Application
+[08/19/13 09:00:42 +0900 MBP.local (626)] WARN : Agent configured not to send data in this environment.
+[08/19/13 09:00:42 +0900 MBP.local (626)] INFO : Installing Net instrumentation
+[08/19/13 09:00:42 +0900 MBP.local (626)] INFO : Installing Sinatra instrumentation
+[08/19/13 09:00:42 +0900 MBP.local (626)] INFO : Installing deferred Rack instrumentation
+[08/19/13 09:00:42 +0900 MBP.local (626)] INFO : Finished instrumentation
+[08/19/13 09:00:42 +0900 MBP.local (626)] INFO : Doing deferred dependency-detection before Rack startup

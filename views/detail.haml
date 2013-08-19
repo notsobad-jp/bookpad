@@ -34,7 +34,7 @@
       %p
         %label 発 売 日：
         %span #{@salesDate}
-    -if @page.empty?
+    -if @stock.nil?
       %div.left.notice.error
         %i.icon-remove-sign.icon-large
         在庫なし
@@ -42,7 +42,6 @@
       %div.left.notice.success
         %i.icon-ok-sign.icon-large
         棚番号：
-        - @page.each do |p|
-          %span #{p}
+        %span #{@stock}
   .col_8
     %img(src="../img/map.gif")

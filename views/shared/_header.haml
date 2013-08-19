@@ -3,9 +3,9 @@
   %nav
     %ul
       %li
-        -# %a(href="" class="button")
-        -#   %i.icon-reply.icon-large
-        -#   BACK
+        %a(href="#{@back}" class="button #{@disabled}")
+          %i.icon-reply.icon-large
+          BACK
       %li
         %a(href="/" class="button")
           %i.icon-home.icon-large

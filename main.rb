@@ -27,12 +27,16 @@ end
 
 #トップページ
 get '/' do
+	@back = '#';
+	@disabled = 'disabled';
 	haml :index
 end
 
 
 #検索結果画面
 post '/search' do
+	@back = '/';
+
 	@keyword = params[:keyword]
 	encoded_keyword = URI.escape(@keyword)
 	app_id = 1094360803658595324
@@ -46,6 +50,8 @@ end
 
 #書籍詳細画面
 post '/detail' do
+	@back = 'javascript:history.back()';
+
 	@keyword = params[:keyword]
 	@isbn = params[:isbn]
 	@title = params[:title]
@@ -53,18 +59,24 @@ post '/detail' do
 	@mediumImageUrl = params[:mediumImageUrl]
 	@publisherName = params[:publisherName]
 	@salesDate = params[:salesDate]
+	@stock = params[:stock] || nil
 
-	mech = Mechanize.new
-	mech.get("https://www.coopbooknavi.jp/zaik/book_search.php")
-	form = mech.page.form_with(:name => "frm")
-	form.field_with(:name => "isbn").value = @isbn
-	form.radiobutton_with(:value => "13036").check
-	form.submit
-	links = mech.page.links
-	@page = Array.new
-	links.each do |link|
-		@page.push(link) if link.href.index("hng")
+	#前画面で在庫情報とってないときだけ検索
+	if @stock.nil?
+		mech = Mechanize.new
+		mech.get("https://www.coopbooknavi.jp/zaik/book_search.php")
+		form = mech.page.form_with(:name => "frm")
+		form.field_with(:name => "isbn").value = @isbn
+		form.radiobutton_with(:value => "13036").check
+		form.submit
+		links = mech.page.links
+		@page = Array.new
+		links.each do |link|
+			@page.push(link) if link.href.index("hng")
+		end
+		@stock = (@page.empty?) ? nil : @page.join(',')
 	end
+	@stock = nil if @stock == "0"
 
 	haml :detail
 end
@@ -78,6 +90,8 @@ end
 
 #お店の在庫検索(ajaxで呼び出し)
 get '/stock_search/:isbn' do
+	return false if params[:isbn].nil?
+
 	mech = Mechanize.new
 	mech.get("https://www.coopbooknavi.jp/zaik/book_search.php")
 	form = mech.page.form_with(:name => "frm")
@@ -90,6 +104,6 @@ get '/stock_search/:isbn' do
 		@page.push(link) if link.href.index("hng")
 	end
 
-	@result = (@page.empty?) ? "1" : "2"
-	return @result
+	@stock = (@page.empty?) ? nil : @page.join(',')
+	return @stock
 end

@@ -58,14 +58,21 @@ header {
 	border-top: 2px solid $color-green;
 	@include box-shadow(rgba(0,0,0,0.2) 0 1px 0);
 
-	h1 {
+	div {
 		position: absolute;
+		width: 100%;
+	}
+	h1 {
+		display: inline-block;
 		font-size: xx-large;
 		font-family: "Megrim", cursive;
 		a {
 			color: $color-green;
 			text-decoration: none;
 		}
+	}
+	small {
+		color: #AAA;
 	}
 	nav {
 		float: right;

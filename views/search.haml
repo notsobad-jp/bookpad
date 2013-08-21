@@ -17,34 +17,33 @@
 
 %section#result.grid
   %h1.hide SEARCH RESULT
-  = @result
--#   - @result['items'].each do |res|
--#     - res = res['volumeInfo']
--#     .col_2
--#       %div
--#         %div
--#           - unless res['imageLinks'].nil?
--#             - img_link = res['imageLinks']['thumbnail']
--#             %img(src="#{img_link}")
--#         %p
--#           %strong #{res["title"]}
--#           %br
--#           (#{res["authors"].to_a.join(',') || "著者名なし"})
--#
--#       %div.left.notice.warning
--#         %i.icon-spinner.icon-large
--#         %span 在庫検索中..
--#
--#       %div
--#         %form(method="post" action="/detail")
--#           %input(type="hidden" name="keyword" value="#{@keyword}")
--#           %input(type="hidden" name="isbn" value="#{res['industryIdentifiers'][0]['identifier']}")
--#           %input(type="hidden" name="title" value="#{res['title']}")
--#           %input(type="hidden" name="author" value="#{res['author']}")
--#           %input(type="hidden" name="mediumImageUrl" value="#{img_link}")
--#           %input(type="hidden" name="publisherName" value="#{res['publisher']}")
--#           -# %input(type="hidden" name="salesDate" value="#{res['Item']['salesDate']}")
--#           %input(type="hidden" name="stock" value="")
--#           %input(type="submit" value="詳細を見る" class="button")
--#
--# %script(src="js/stock_search.js")
+  - @result['items'].each do |res|
+    - res = res['volumeInfo']
+    .col_2
+      %div
+        %div
+          - unless res['imageLinks'].nil?
+            - img_link = res['imageLinks']['thumbnail']
+            %img(src="#{img_link}")
+        %p
+          %strong #{res["title"]}
+          %br
+          (#{res["authors"].to_a.join(',') || "著者名なし"})
+
+      %div.left.notice.warning
+        %i.icon-spinner.icon-large
+        %span 在庫検索中..
+
+      %div
+        %form(method="post" action="/detail")
+          %input(type="hidden" name="keyword" value="#{@keyword}")
+          %input(type="hidden" name="isbn" value="#{res['industryIdentifiers'][0]['identifier']}")
+          %input(type="hidden" name="title" value="#{res['title']}")
+          %input(type="hidden" name="author" value="#{res['author']}")
+          %input(type="hidden" name="mediumImageUrl" value="#{img_link}")
+          %input(type="hidden" name="publisherName" value="#{res['publisher']}")
+          -# %input(type="hidden" name="salesDate" value="#{res['Item']['salesDate']}")
+          %input(type="hidden" name="stock" value="")
+          %input(type="submit" value="詳細を見る" class="button")
+
+%script(src="js/stock_search.js")

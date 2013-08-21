@@ -137,11 +137,18 @@ header {
 	.notice {
 		padding: 6px 20px 5px 35px;
 	}
-	p { min-height: 38px; }
+	p {
+		height: 38px;
+		overflow: hidden;
+	}
 	input[type="submit"] { width: 100%; }
-	img { min-height: 168px; }
 	.col_2 {
 		margin-bottom: 30px;
+		div:first-child div{
+			max-width: 128px;
+			height: 185px;
+			margin: 0 auto;
+		}
 	}
 }
 

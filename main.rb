@@ -37,13 +37,14 @@ end
 post '/search' do
 	@back = '/';
 
+	#GoogleBooksAPIで検索
 	@keyword = params[:keyword]
 	encoded_keyword = URI.escape(@keyword)
-	app_id = ENV["RAKUTEN_KEY"]
-
-	uri = URI.parse("https://app.rakuten.co.jp/services/api/BooksTotal/Search/20130522?format=json&keyword=#{encoded_keyword}&booksGenreId=000&applicationId=#{app_id}")
+	max_result = 6
+	uri = URI.parse("https://www.googleapis.com/books/v1/volumes?q=#{encoded_keyword}&maxResults=#{max_result}")
 	json = Net::HTTP.get(uri)
 	@result = JSON.parse(json)
+
 	haml :search
 end
 
@@ -52,6 +53,7 @@ end
 post '/detail' do
 	@back = 'javascript:history.back()';
 
+	#前画面で取得した情報をセット
 	@keyword = params[:keyword]
 	@isbn = params[:isbn]
 	@title = params[:title]

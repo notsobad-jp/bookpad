@@ -41,8 +41,8 @@ post '/search' do
 	@keyword = params[:keyword]
 	encoded_keyword = URI.escape(@keyword)
 	max_result = 6
-	api_key = "AIzaSyAbxaSWOr0NbILsrFnSO-UCZCBo_3HkUBw"
-	uri = URI.parse("https://www.googleapis.com/books/v1/volumes?q=#{encoded_keyword}&maxResults=#{max_result}&key=#{api_key}")
+	# api_key = "AIzaSyAbxaSWOr0NbILsrFnSO-UCZCBo_3HkUBw"
+	uri = URI.parse("https://www.googleapis.com/books/v1/volumes?q=#{encoded_keyword}&maxResults=#{max_result}&country=JP")
 	json = Net::HTTP.get(uri)
 	@result = JSON.parse(json)
 

@@ -55,26 +55,6 @@ end
 
 #書籍詳細画面
 get '/detail/:isbn' do
-	@isbn = params[:isbn]
-	@stock = nil
-
-	#前画面で在庫情報とってないときだけ検索
-	if @stock.nil?
-		mech = Mechanize.new
-		mech.get("https://www.coopbooknavi.jp/zaik/book_search.php")
-		form = mech.page.form_with(:name => "frm")
-		form.field_with(:name => "isbn").value = @isbn
-		form.radiobutton_with(:value => "13036").check
-		form.submit
-		links = mech.page.links
-		@page = Array.new
-		links.each do |link|
-			@page.push(link) if link.href.index("hng")
-		end
-		@stock = (@page.empty?) ? nil : @page.join(',')
-	end
-	@stock = nil if @stock == "0"
-
 	haml :detail, :layout => !request.pjax?
 end
 

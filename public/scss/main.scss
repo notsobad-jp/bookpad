@@ -34,7 +34,7 @@ ul {
 
 section { margin-bottom: 50px !important; }
 
-.title {
+.headline {
 	text-align: left;
 	font-size: x-large;
 	font-weight: normal;
@@ -164,7 +164,7 @@ header {
 #detail {
 	label { margin-top: 0; }
 	span { font-weight: bold; }
-	.notice span { font-size: large; }
+	.notice span:last-child { font-size: large; }
 	.col_8 img {
 		width: 100%;
 	}

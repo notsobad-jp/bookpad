@@ -25,14 +25,9 @@
       %p#publisher
         %label 出 版 社：
         %span
-    -if @stock.nil?
-      %div.left.notice.error
-        %i.icon-remove-sign.icon-large
-        在庫なし
-    -else
-      %div.left.notice.success
-        %i.icon-ok-sign.icon-large
-        棚番号：
-        %span #{@stock}
+    #stock.left.notice.warning
+      %i.icon-spinner.icon-large
+      %span 在庫検索中..
+      %span
   .col_8
     %img(src="../img/map.gif")

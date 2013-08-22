@@ -30,12 +30,12 @@
 
       %div.book_data.hide
         %ul
-          %li#title #{res['title']}
-          %li#authors #{res['authors']}
-          %li#img_link #{img_link}
-          %li#publisher #{res['publisher']}
-          %li#isbn #{res['industryIdentifiers'][0]['identifier']}
-          %li#stock
+          %li.title #{res['title']}
+          %li.authors #{res['authors']}
+          %li.img_link #{img_link}
+          %li.publisher #{res['publisher']}
+          %li.isbn #{res['industryIdentifiers'][0]['identifier']}
+          %li.stock
 
       %div
         %a(href="/detail/#{res['industryIdentifiers'][0]['identifier']}" class="button pjax")

@@ -43,7 +43,7 @@ section {
 }
 
 /* line 37, ../scss/main.scss */
-.title {
+.headline {
   text-align: left;
   font-size: x-large;
   font-weight: normal;
@@ -206,7 +206,7 @@ header li:last-child {
   font-weight: bold;
 }
 /* line 167, ../scss/main.scss */
-#detail .notice span {
+#detail .notice span:last-child {
   font-size: large;
 }
 /* line 168, ../scss/main.scss */

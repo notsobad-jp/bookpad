@@ -15,9 +15,10 @@ $(function(){
 	$(document).on('click', 'a.pjax', function(e) {
 	  e.preventDefault();
 		var href = $(this).attr("href");
-		$('#container section:nth-child(2)').animate({
+		$('#container section:nth-child(3)').animate({
 			opacity: 0
 		}, 'slow', function(){
+			$("#loader").html("<img src='/img/loader.gif'/>");
 		  $.pjax({
 				url: href,
 		    container : '#container',
@@ -26,7 +27,8 @@ $(function(){
 		});
 		//PJAX終了時の処理
 		$(document).on('pjax:end', function(){
-			$('#container section:nth-child(2)').animate({ opacity: 1 }, 'slow');
+			$('#container section:nth-child(3)').animate({ opacity: 1 }, 'slow');
+			$('#loader').empty();
 
 			//SEARCH画面への遷移時
 			if(location.href.indexOf("search") > 0) {

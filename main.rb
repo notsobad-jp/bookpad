@@ -35,17 +35,12 @@ end
 
 #トップページ
 get '/' do
-	@back = '#';
-	@disabled = 'disabled';
-
 	haml :index
 end
 
 
 #検索結果画面
 get '/search/:keyword' do
-	@back = '/';
-
 	#GoogleBooksAPIで検索
 	@keyword = params[:keyword]
 	encoded_keyword = URI.escape(@keyword)
@@ -60,7 +55,6 @@ end
 
 #書籍詳細画面
 get '/detail/:isbn' do
-	@back = 'javascript:history.back()';
 	@isbn = params[:isbn]
 	@stock = nil
 

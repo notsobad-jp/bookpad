@@ -11,7 +11,7 @@ $(function(){
 	});
 
 
-	//pjax
+	//PJAX処理
 	$(document).on('click', 'a.pjax', function(e) {
 	  e.preventDefault();
 		var href = $(this).attr("href");
@@ -24,47 +24,48 @@ $(function(){
 		    timeout : 10000
 		  });
 		});
-		//PJAX終了時のアニメーション
+		//PJAX終了時の処理
 		$(document).on('pjax:end', function(){
 			$('#container section:nth-child(2)').animate({ opacity: 1 }, 'slow');
-		});
-	});
 
+			//SEARCH画面への遷移時
+			if(location.href.indexOf("search") > 0) {
+				$('header li:first-child a').attr('href', '/').removeClass('disabled');
+				//読み込んだデータをWebStorageに保存
+				var storage = window.localStorage;
+				$(".book_data").each(function(){
+					//TODO: 変なISBNが入った時の処理
+					var isbn = $(this).find("#isbn").text();
+					if(!storage.getItem(isbn)) {
+						//TODO: 要素が空の時の処理
+						var data = {
+							title: $(this).find("#title").text(),
+							authors: $(this).find("#authors").text(),
+							img_link: $(this).find("#img_link").text(),
+							publisher: $(this).find("#publisher").text(),
+						};
+						storage.setItem(isbn, JSON.stringify(data));
+					}
+				});
+			}
 
-	//検索結果画面
-	if(location.href.indexOf("search") > 0) {
-		//読み込んだデータをWebStorageに保存
-		var storage = window.localStorage;
-		$(".book_data").each(function(){
-			//TODO: 変なISBNが入った時の処理
-			var isbn = $(this).find("#isbn").text();
-			if(!storage.getItem(isbn)) {
-				//TODO: 要素が空の時の処理
-				var data = {
-					title: $(this).find("#title").text(),
-					authors: $(this).find("#authors").text(),
-					img_link: $(this).find("#img_link").text(),
-					publisher: $(this).find("#publisher").text(),
-				};
-				storage.setItem(isbn, JSON.stringify(data));
+			//DETAIL画面への遷移時
+			if(location.href.indexOf("detail") > 0) {
+				$('header li:first-child a').attr('href', 'javascript:history.back()').removeClass('disabled');
+				//WebStorageから情報を出力
+				var storage = window.localStorage;
+				var isbn = location.pathname.split("/")[2];
+
+				if(storage.getItem(isbn)) {
+					var data = JSON.parse(storage.getItem(isbn))
+					$("#img").attr("src", data["img_link"]);
+					$("#title span").text(data["title"]);
+					$("#authors span").text(data["authors"].replace(/[",\[,\]]/g,''));
+					$("#publisher span").text(data["publisher"]);
+				}
+
+				//TODO: WebStorageにないときはGoogleAPIをISBNで叩きにいく
 			}
 		});
-	}
-
-	//詳細表示画面
-	if(location.href.indexOf("detail") > 0) {
-		//WebStorageから情報を出力
-		var storage = window.localStorage;
-		var isbn = location.pathname.split("/")[2];
-
-		if(storage.getItem(isbn)) {
-			var data = JSON.parse(storage.getItem(isbn))
-			$("#img").attr("src", data["img_link"]);
-			$("#title span").text(data["title"]);
-			$("#authors span").text(data["authors"].replace(/[",\[,\]]/g,''));
-			$("#publisher span").text(data["publisher"]);
-		}
-
-		//TODO: WebStorageにないときはGoogleAPIをISBNで叩きにいく
-	}
+	});
 });

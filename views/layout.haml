@@ -6,5 +6,6 @@
   %body
     = haml :"shared/_header"
     = haml :"shared/_search"
-    = yield
+    #container
+      = yield
     %script(src="/js/google_analytics.js")

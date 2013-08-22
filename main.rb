@@ -12,6 +12,15 @@ configure :production do
   require 'newrelic_rpm'
 end
 
+
+#PJAX判定
+class Sinatra::Request
+  def pjax?
+    env['HTTP_X_PJAX'] || self["_pjax"]
+  end
+end
+
+
 #ヘルパー
 helpers do
 	include Rack::Utils
@@ -24,11 +33,11 @@ get '/css/main.css' do
 end
 
 
-
 #トップページ
 get '/' do
 	@back = '#';
 	@disabled = 'disabled';
+
 	haml :index
 end
 
@@ -45,7 +54,7 @@ get '/search/:keyword' do
 	json = Net::HTTP.get(uri)
 	@result = JSON.parse(json)
 
-	haml :search
+	haml :search, :layout => !request.pjax?
 end
 
 
@@ -72,7 +81,7 @@ get '/detail/:isbn' do
 	end
 	@stock = nil if @stock == "0"
 
-	haml :detail
+	haml :detail, :layout => !request.pjax?
 end
 
 

@@ -1,0 +1,11 @@
+%section#search
+  %h1.hide 検索エリア
+  .grid
+    .col_12
+      %input(type="text" name="keyword" placeholder="本のタイトル、著者名、出版社名など")
+      %a(href="/search" class="button orange large") 検索
+
+      -# %form(method="post" action="/search")
+      -#   %input(type="text" name="keyword" placeholder="本のタイトル、著者名、出版社名など")
+      -#   %input(type="submit" value="検索" class="button orange large")
+

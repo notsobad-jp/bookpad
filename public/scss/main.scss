@@ -90,25 +90,25 @@ header {
 	background: url("../img/stripe.png");
 	overflow: hidden;
 	text-align: center;
-	input {
-		height: 45px;
-		font-size: x-large;
-	}
+
 	input::-webkit-input-placeholder {
 		font-size: medium;
 		padding-top: 5px;
 		color: #CCC;
 	}
 	input[type="text"] {
+		height: 45px;
+		font-size: x-large;
 		margin-top: 0;
 		margin-left: 0;
 		padding-left: 15px;
 		width: 60%;
 	}
-	input[type="submit"] {
+	a {
 	  font-size: 1.5em;
 		padding-left: 40px;
 		padding-right: 40px;
+		height: 45px;
 	}
 }
 
@@ -134,6 +134,7 @@ header {
 *****************************************************************/
 #result {
 	text-align: center;
+	overflow: hidden;
 	.notice {
 		padding: 6px 20px 5px 35px;
 	}
@@ -141,7 +142,7 @@ header {
 		height: 38px;
 		overflow: hidden;
 	}
-	input[type="submit"] { width: 100%; }
+	a { width: 100%; }
 	.col_2 {
 		margin-bottom: 30px;
 		div:first-child div{

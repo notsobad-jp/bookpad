@@ -1,11 +1,3 @@
-%section#search
-  %h1.hide 検索エリア
-  .grid
-    .col_12
-      %form(method="post" action="/search")
-        %input(type="text" name="keyword" placeholder="本のタイトル、著者名、出版社名など" value="#{@keyword}")
-        %input(type="submit" value="検索" class="button orange large")
-
 %section#breadcrumb
   %ul.breadcrumb
     %li
@@ -15,25 +7,22 @@
     %li
       %a(href="#") 本の詳細
     %li#last_bread_3
-      %a(href="#") Book: #{@title}
+      %a(href="#") [Book] #{@title}
 
 %section#detail.grid
   %h1.hide BOOK DETAIL
   .col_4
     %div
-      %img(src="#{@mediumImageUrl}")
-      %p
+      %img(src="" id="img")
+      %p#title
         %label タイトル：
-        %span #{@title}
-      %p
+        %span
+      %p#authors
         %label 著 者 名：
-        %span #{@author}
-      %p
+        %span
+      %p#publisher
         %label 出 版 社：
-        %span #{@publisherName}
-      %p
-        %label 発 売 日：
-        %span #{@salesDate}
+        %span
     -if @stock.nil?
       %div.left.notice.error
         %i.icon-remove-sign.icon-large

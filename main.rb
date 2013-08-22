@@ -34,7 +34,7 @@ end
 
 
 #検索結果画面
-post '/search' do
+get '/search/:keyword' do
 	@back = '/';
 
 	#GoogleBooksAPIで検索
@@ -50,18 +50,10 @@ end
 
 
 #書籍詳細画面
-post '/detail' do
+get '/detail/:isbn' do
 	@back = 'javascript:history.back()';
-
-	#前画面で取得した情報をセット
-	@keyword = params[:keyword]
 	@isbn = params[:isbn]
-	@title = params[:title]
-	@author = params[:author]
-	@mediumImageUrl = params[:mediumImageUrl]
-	@publisherName = params[:publisherName]
-	@salesDate = params[:salesDate]
-	@stock = params[:stock] || nil
+	@stock = nil
 
 	#前画面で在庫情報とってないときだけ検索
 	if @stock.nil?

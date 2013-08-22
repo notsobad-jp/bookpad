@@ -1,11 +1,3 @@
-%section#search
-  %h1.hide 検索エリア
-  .grid
-    .col_12
-      %form(method="post" action="/search")
-        %input(type="text" name="keyword" placeholder="本のタイトル、著者名、出版社名など" value="#{@keyword}")
-        %input(type="submit" value="検索" class="button orange large")
-
 %section#breadcrumb
   %ul.breadcrumb
     %li
@@ -13,7 +5,7 @@
     %li
       %a(href="#") 検索結果
     %li#last_bread_2
-      %a(href="#") Keyword: #{@keyword}
+      %a(href="#") [Keyword] #{@keyword}
 
 %section#result.grid
   %h1.hide SEARCH RESULT
@@ -34,16 +26,18 @@
         %i.icon-spinner.icon-large
         %span 在庫検索中..
 
-      %div
-        %form(method="post" action="/detail")
-          %input(type="hidden" name="keyword" value="#{@keyword}")
-          %input(type="hidden" name="isbn" value="#{res['industryIdentifiers'][0]['identifier']}")
-          %input(type="hidden" name="title" value="#{res['title']}")
-          %input(type="hidden" name="author" value="#{res['author']}")
-          %input(type="hidden" name="mediumImageUrl" value="#{img_link}")
-          %input(type="hidden" name="publisherName" value="#{res['publisher']}")
-          -# %input(type="hidden" name="salesDate" value="#{res['Item']['salesDate']}")
-          %input(type="hidden" name="stock" value="")
-          %input(type="submit" value="詳細を見る" class="button")
+      %div.book_data.hide
+        %ul
+          %li#title #{res['title']}
+          %li#authors #{res['authors']}
+          %li#img_link #{img_link}
+          %li#publisher #{res['publisher']}
+          %li#isbn #{res['industryIdentifiers'][0]['identifier']}
+          %li#stock
 
-%script(src="js/stock_search.js")
+      %div
+        %a(href="/detail/#{res['industryIdentifiers'][0]['identifier']}" class="button")
+          %i(class="icon-zoom-in icon-large")
+          詳細を見る
+
+-# %script(src="js/stock_search.js")

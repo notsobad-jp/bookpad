@@ -5,7 +5,7 @@
     %li
       %a(href="#") 検索結果
     %li#last_bread_2
-      %a(href="#") [Keyword] #{@keyword}
+      %a(href="#") 　
 
 %section#loader
 
@@ -13,10 +13,13 @@
   %h1.hide SEARCH RESULT
   - @result['items'].each do |res|
     - res = res['volumeInfo']
+    - isbn = res['industryIdentifiers'][0]['identifier'] if res['industryIdentifiers']
     .col_2
       %div
         %div
-          - unless res['imageLinks'].nil?
+          - if res['imageLinks'].nil?
+            %div.no_img No Image..
+          - else
             - img_link = res['imageLinks']['thumbnail']
             %img(src="#{img_link}")
         %p
@@ -34,12 +37,15 @@
           %li.authors #{res['authors']}
           %li.img_link #{img_link}
           %li.publisher #{res['publisher']}
-          %li.isbn #{res['industryIdentifiers'][0]['identifier']}
+          %li.isbn #{isbn}
           %li.stock
 
       %div
-        %a(href="/detail/#{res['industryIdentifiers'][0]['identifier']}" class="button pjax")
-          %i(class="icon-zoom-in icon-large")
-          詳細を見る
-
--# %script(src="js/stock_search.js")
+        - if isbn && isbn.length == 10
+          %a(href="/detail/#{isbn}" class="button pjax")
+            %i(class="icon-zoom-in icon-large")
+            詳細を見る
+        - else
+          %a(href="#" class="button disabled")
+            %i(class="icon-zoom-in icon-large")
+            詳細情報なし

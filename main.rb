@@ -43,6 +43,7 @@ end
 get '/search/:keyword' do
 	#GoogleBooksAPIで検索
 	@keyword = params[:keyword]
+	encoded_keyword = @keyword
 	encoded_keyword = URI.escape(@keyword)
 	max_result = 6
 	uri = URI.parse("https://www.googleapis.com/books/v1/volumes?q=#{encoded_keyword}&maxResults=#{max_result}&country=JP")

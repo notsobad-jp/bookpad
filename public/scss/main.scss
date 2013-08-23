@@ -48,6 +48,13 @@ section { margin-bottom: 50px !important; }
 .grid { max-width: 100%; }
 .btn-100 { width: 100%; }
 
+.no_img {
+	text-align: center;
+	background: $color-white;
+	border: 2px solid #DDD;
+	line-height: 180px;
+	color: #999;
+}
 
 /*****************************************************************
 * HEADER
@@ -155,6 +162,7 @@ header {
 		}
 		img { max-height: 100%; }
 	}
+
 }
 
 
@@ -167,6 +175,14 @@ header {
 	.notice span:last-child { font-size: large; }
 	.col_8 img {
 		width: 100%;
+	}
+	.col_4 div div {
+		height: 180px;
+		width: 128px;
+		img {
+			max-height: 100%;
+			max-width: 100%;
+		}
 	}
 }
 

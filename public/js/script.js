@@ -5,9 +5,16 @@ $(function(){
 	});
 
 	//検索ワード入れたら検索ボタンのリンクに追加
-	$("#search input[name='keyword']").bind('change blur', function(){
-		//TODO: キーワードのエスケープ処理
-		$("#search a").attr("href", "/search/"+$(this).val());
+	$("#search input[name='keyword']").bind('change blur click', function(){
+		if($(this).val()){
+			var encoded_keyword = encodeURIComponent($(this).val());
+			$("#search a").addClass("pjax");
+			$("#search a").attr("href", "/search/"+ encoded_keyword);
+		}else {
+			//空文字のときは検索させない
+			$("#search a").removeClass("pjax");
+			$("#search a").attr("href", "javascript:void(0)");
+		}
 	});
 
 	//PJAX処理
@@ -24,6 +31,7 @@ $(function(){
 		    timeout : 10000
 		  });
 		});
+
 		//PJAX終了時の処理
 		$(document).on('pjax:end', function(){
 			$('#container section:nth-child(3)').animate({ opacity: 1 }, 'slow');
@@ -36,53 +44,74 @@ $(function(){
 				var storage = window.localStorage;
 
 				$(".book_data").each(function(){
-					var isbn = $(this).find(".isbn").text();  //TODO: 変なISBNが入った時の処理
+					var isbn = $(this).find(".isbn").text();
 					if(!storage.getItem(isbn)) {
 						//在庫検索
-						$.ajax({
-							url: "/stock_search/" + isbn,
-						}).done(function(data){
+						if(isbn.length == 10) {  //変なISBNが入った時の処理
+							$.ajax({
+								url: "/stock_search/" + isbn,
+							}).done(function(data){
+								var i = 0;
+								$(".isbn").each(function(k, val) {
+									if(val.innerText == isbn){ i = k; }
+								});
+
+								var div = $('.col_2').eq(i);
+								//在庫あり
+								if(data) {
+									div.find('.notice').addClass('success').removeClass('warning');
+									div.find('.notice').find('i').addClass('icon-ok-sign').removeClass('icon-spinner');
+									div.find('.notice').find('span').text('在庫あり');
+								//在庫なし
+								}else {
+									div.find('.notice').addClass('error').removeClass('warning');
+									div.find('.notice').find('i').addClass('icon-remove-sign').removeClass('icon-spinner');
+									div.find('.notice').find('span').text('在庫なし');
+								}
+
+								//基本情報と合わせてWebStorageに保存
+								var book_info = {
+									title: div.find(".title").text(),
+									authors: div.find(".authors").text(),
+									img_link: div.find(".img_link").text(),
+									publisher: div.find(".publisher").text(),
+									stock: data,
+								};
+								storage.setItem(isbn, JSON.stringify(book_info));
+
+							}).fail(function(data){
+								var i = 0;
+								$(".isbn").each(function(k, val) {
+									if(val.innerText == isbn){ i = k; }
+								});
+								div.find('.notice').addClass('error').removeClass('warning');
+								div.find('.notice').find('i').addClass('icon-remove-sign').removeClass('icon-spinner');
+								div.find('.notice').find('span').text('在庫なし');
+							});
+						}else {
 							var i = 0;
 							$(".isbn").each(function(k, val) {
 								if(val.innerText == isbn){ i = k; }
 							});
 
 							var div = $('.col_2').eq(i);
-							//在庫あり
-							if(data) {
-								div.find('.notice').addClass('success').removeClass('warning');
-								div.find('.notice').find('i').addClass('icon-ok-sign').removeClass('icon-spinner');
-								div.find('.notice').find('span').text('在庫あり');
-							//在庫なし
-							}else {
-								div.find('.notice').addClass('error').removeClass('warning');
-								div.find('.notice').find('i').addClass('icon-remove-sign').removeClass('icon-spinner');
-								div.find('.notice').find('span').text('在庫なし');
-							}
+							div.find('.notice').addClass('error').removeClass('warning');
+							div.find('.notice').find('i').addClass('icon-remove-sign').removeClass('icon-spinner');
+							div.find('.notice').find('span').text('在庫なし');
 
-							//基本情報と合わせてWebStorageに保存
+							//基本情報だけWebStorageに保存
 							var book_info = {
 								title: div.find(".title").text(),
 								authors: div.find(".authors").text(),
 								img_link: div.find(".img_link").text(),
 								publisher: div.find(".publisher").text(),
-								stock: data,
+								stock: "",
 							};
 							storage.setItem(isbn, JSON.stringify(book_info));
-
-						}).fail(function(data){
-							var i = 0;
-							$(".isbn").each(function(k, val) {
-								if(val.innerText == isbn){ i = k; }
-							});
-							div.find('.notice').addClass('error').removeClass('warning');
-							div.find('.notice').find('i').addClass('icon-remove-sign').removeClass('icon-spinner');
-							div.find('.notice').find('span').text('在庫なし');
-						});
+						}
 					}else {
 						//情報保存済みの場合はそれを取得して表示
 						var data = JSON.parse(storage.getItem(isbn));
-						console.log($(this).prev());
 						if(data["stock"]){
 							$(this).prev().addClass('success').removeClass('warning');
 							$(this).prev().find('i').addClass('icon-ok-sign').removeClass('icon-spinner');
@@ -105,7 +134,13 @@ $(function(){
 
 				if(storage.getItem(isbn)) {
 					var data = JSON.parse(storage.getItem(isbn));
-					$("#img").attr("src", data["img_link"]);
+					if(data["img_link"]){
+						$("#img").empty();
+						$("#img").append("<img src='"+data["img_link"]+"' alt='書影'>");
+					}else {
+						$("#img").addClass("no_img");
+						$("#img").innerText("No Image..");
+					}
 					$("#title span").text(data["title"]);
 					$("#authors span").text(data["authors"].replace(/[",\[,\]]/g,''));
 					$("#publisher span").text(data["publisher"]);

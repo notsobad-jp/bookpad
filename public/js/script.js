@@ -47,7 +47,7 @@ $(function(){
 					var isbn = $(this).find(".isbn").text();
 					if(!storage.getItem(isbn)) {
 						//在庫検索
-						if(isbn.length == 10) {  //変なISBNが入った時の処理
+						if(isbn) {  //変なISBNが入った時の処理
 							$.ajax({
 								url: "/stock_search/" + isbn,
 							}).done(function(data){

@@ -281,3 +281,4 @@
 [08/26/13 10:01:06 +0900 MBP.local (25461)] INFO : Installing deferred Rack instrumentation
 [08/26/13 10:01:06 +0900 MBP.local (25461)] INFO : Finished instrumentation
 [08/26/13 10:01:06 +0900 MBP.local (25461)] INFO : Doing deferred dependency-detection before Rack startup
+[08/26/13 10:28:43 +0900 MBP.local (25461)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: getaddrinfo: nodename nor servname provided, or not known

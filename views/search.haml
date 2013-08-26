@@ -11,21 +11,21 @@
 
 %section#result.grid
   %h1.hide SEARCH RESULT
-  - @result['items'].each do |res|
-    - res = res['volumeInfo']
-    - isbn = res['industryIdentifiers'][0]['identifier'] if res['industryIdentifiers']
+  - @result['Items'].each do |res|
+    - res = res['Item']
+    - isbn = res['isbn']
     .col_2
       %div
         %div
-          - if res['imageLinks'].nil?
+          - if res['mediumImageUrl'].nil?
             %div.no_img No Image..
           - else
-            - img_link = res['imageLinks']['thumbnail']
+            - img_link = res['mediumImageUrl']
             %img(src="#{img_link}")
         %p
           %strong #{res["title"]}
           %br
-          (#{res["authors"].to_a.join(',') || "著者名なし"})
+          (#{res["author"] || "著者名なし"})
 
       %div.left.notice.warning
         %i.icon-spinner.icon-large
@@ -34,14 +34,14 @@
       %div.book_data.hide
         %ul
           %li.title #{res['title']}
-          %li.authors #{res['authors']}
+          %li.authors #{res['author']}
           %li.img_link #{img_link}
-          %li.publisher #{res['publisher']}
+          %li.publisher #{res['publisherName']}
           %li.isbn #{isbn}
           %li.stock
 
       %div
-        - if isbn && isbn.length == 10
+        - if isbn
           %a(href="/detail/#{isbn}" class="button pjax")
             %i(class="icon-zoom-in icon-large")
             詳細を見る

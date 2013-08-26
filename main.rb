@@ -41,8 +41,8 @@ end
 
 #検索結果画面
 get '/search/:keyword' do
-	#GoogleBooksAPIで検索
 	@result = book_search(params[:keyword], max_result=6)
+	p @result
 	haml :search, :layout => !request.pjax?
 end
 
@@ -62,7 +62,7 @@ end
 #お店の在庫検索(ajaxで呼び出し)
 get '/stock_search/:isbn' do
 	return false if params[:isbn].nil?
-	store_id = 3  #TODO: ログイン情報に応じて検索店舗を変える
+	store_id = ENV['STORE_ID'] || 2  #TODO: ログイン情報に応じて検索店舗を変える
 	@stock = stock_search(params[:isbn], store_id)
 
 	return @stock
@@ -72,7 +72,13 @@ end
 #キーワードから本を検索
 def book_search(keyword, max_result)
 	encoded_keyword = URI.escape(keyword)
-	uri = URI.parse("https://www.googleapis.com/books/v1/volumes?q=#{encoded_keyword}&maxResults=#{max_result}&country=JP")
+
+	#GoogleBooksAPI
+	# uri = URI.parse("https://www.googleapis.com/books/v1/volumes?q=#{encoded_keyword}&maxResults=#{max_result}&country=JP")
+
+	#RakutenBooksAPI
+	uri = URI.parse("https://app.rakuten.co.jp/services/api/BooksTotal/Search/20130522?format=json&keyword=#{encoded_keyword}&booksGenreId=000&hits=#{max_result}&applicationId=#{ENV['RAKUTEN_KEY']}")
+
 	json = Net::HTTP.get(uri)
 	@result = JSON.parse(json)
 end

@@ -62,7 +62,7 @@ end
 #お店の在庫検索(ajaxで呼び出し)
 get '/stock_search/:isbn' do
 	return false if params[:isbn].nil?
-	store_id = 1  #TODO: ログイン情報に応じて検索店舗を変える
+	store_id = 3  #TODO: ログイン情報に応じて検索店舗を変える
 	@stock = stock_search(params[:isbn], store_id)
 
 	return @stock
@@ -98,7 +98,7 @@ def stock_search(isbn, store_id)
 	when 3 #岩波ブックセンター
 		mech = Mechanize.new
 		mech.get("http://jinbou.books-sanseido.co.jp/jinbou/bookTownJinbou.do?syISBN=#{isbn}")
-		stock_info = mech.page.at("table[3]").at("table[3]").at("tr[5]").at("td[3]").at("p").inner_text
+		stock_info = mech.page.at("table[3]").at("table[3]").at("tr[3]").at("td[3]").at("p").inner_text
 		@stock = (stock_info.empty?) ? nil : stock_info.gsub(".", ", ")
 	end
 end

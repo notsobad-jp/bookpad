@@ -17,6 +17,7 @@ group :development do
 	gem 'sass'
 	gem 'coffee-script'
 	gem 'compass'
+	gem 'travis'
 end
 
 group :test do

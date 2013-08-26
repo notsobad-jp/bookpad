@@ -1,8 +1,15 @@
 language: ruby
 rvm:
-  - 2.0.0
+- 2.0.0
 gemfile:
-  - Gemfile
+- Gemfile
 branches:
   only:
-    - master
+  - master
+deploy:
+  provider: heroku
+  api_key:
+    secure: MjTwJFq0F+Z3+bsWQiI5OmIJu9luP8kokm+Y+0NN6N44tyOPR+2fu/44Qu1XVcxlVhTVLUM0st7Qv7ih0VzBDoRvg1T4iVj0AMGjuSm/VmumLVluA+91goZyhTuAZPsuqtO27zBFynBCfYW3U70CW6isr5jLr5ODqra+DpcReuc=
+  app:
+    develop: bookpad-staging
+    master: bookpad

@@ -18,3 +18,9 @@ group :development do
 	gem 'coffee-script'
 	gem 'compass'
 end
+
+group :test do
+	gem 'rspec'
+	gem 'rack-test'
+	gem 'rake'
+end

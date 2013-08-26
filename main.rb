@@ -42,7 +42,6 @@ end
 #検索結果画面
 get '/search/:keyword' do
 	@result = book_search(params[:keyword], max_result=6)
-	p @result
 	haml :search, :layout => !request.pjax?
 end
 
@@ -62,7 +61,7 @@ end
 #お店の在庫検索(ajaxで呼び出し)
 get '/stock_search/:isbn' do
 	return false if params[:isbn].nil?
-	store_id = ENV['STORE_ID'] || 2  #TODO: ログイン情報に応じて検索店舗を変える
+	store_id = ENV['STORE_ID'] ? 3 : 2  #TODO: ログイン情報に応じて検索店舗を変える
 	@stock = stock_search(params[:isbn], store_id)
 
 	return @stock

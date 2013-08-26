@@ -282,3 +282,16 @@
 [08/26/13 10:01:06 +0900 MBP.local (25461)] INFO : Finished instrumentation
 [08/26/13 10:01:06 +0900 MBP.local (25461)] INFO : Doing deferred dependency-detection before Rack startup
 [08/26/13 10:28:43 +0900 MBP.local (25461)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: getaddrinfo: nodename nor servname provided, or not known
+[08/26/13 13:38:26 +0900 MBP.local (25857)] INFO : Starting the New Relic agent in "development" environment.
+[08/26/13 13:38:26 +0900 MBP.local (25857)] INFO : To prevent agent startup add a NEWRELIC_ENABLE=false environment variable or modify the "development" section of your newrelic.yml.
+[08/26/13 13:38:26 +0900 MBP.local (25857)] INFO : Reading configuration from config/newrelic.yml
+[08/26/13 13:38:26 +0900 MBP.local (25857)] INFO : Enabling the Request Sampler.
+[08/26/13 13:38:26 +0900 MBP.local (25857)] INFO : Environment: development
+[08/26/13 13:38:26 +0900 MBP.local (25857)] INFO : Dispatcher: thin
+[08/26/13 13:38:26 +0900 MBP.local (25857)] INFO : Application: My Application
+[08/26/13 13:38:26 +0900 MBP.local (25857)] WARN : Agent configured not to send data in this environment.
+[08/26/13 13:38:26 +0900 MBP.local (25857)] INFO : Installing Net instrumentation
+[08/26/13 13:38:26 +0900 MBP.local (25857)] INFO : Installing Sinatra instrumentation
+[08/26/13 13:38:26 +0900 MBP.local (25857)] INFO : Installing deferred Rack instrumentation
+[08/26/13 13:38:26 +0900 MBP.local (25857)] INFO : Finished instrumentation
+[08/26/13 13:38:27 +0900 MBP.local (25857)] INFO : Doing deferred dependency-detection before Rack startup

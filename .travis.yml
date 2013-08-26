@@ -1,11 +1,10 @@
 language: ruby
-rvm:
-- 2.0.0
-gemfile:
-- Gemfile
+rvm: 2.0.0
+gemfile: Gemfile
 branches:
   only:
-  - master
+    - master
+    - develop
 deploy:
   provider: heroku
   api_key:

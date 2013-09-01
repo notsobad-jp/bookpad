@@ -6,6 +6,7 @@ require 'json'
 require 'open-uri'
 require 'iconv'
 require 'mechanize'
+require 'i18n'
 
 #本番ではnewrelic使用
 configure :production do
@@ -20,16 +21,24 @@ class Sinatra::Request
   end
 end
 
+# We're going to load the paths to locale files,
+I18n.load_path += Dir[File.join(File.dirname(__FILE__), 'locales', '*.yml').to_s]
+
 
 #ヘルパー
 helpers do
 	include Rack::Utils
 	alias_method :h, :escape_html
-end
 
-#CSS/SCSS
-get '/css/main.css' do
-  scss :'scss/main'
+  def get_locale
+    # Pulls the browser's language
+    @env["HTTP_ACCEPT_LANGUAGE"][0,2]
+  end
+
+  def t(*args)
+    # Just a simple alias
+    I18n.t(*args)
+  end
 end
 
 

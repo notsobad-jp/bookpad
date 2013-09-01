@@ -1,11 +1,11 @@
 %section#breadcrumb
   %ul.breadcrumb
     %li
-      %a(href="#") ホーム
+      %a(href="#") #{t 'breadcrumb.home'}
     %li
-      %a(href="#") 検索結果
+      %a(href="#") #{t 'breadcrumb.result'}
     %li
-      %a(href="#") 本の詳細
+      %a(href="#") #{t 'breadcrumb.detail'}
     %li#last_bread_3
       %a(href="#") 　
 
@@ -17,17 +17,17 @@
     %div
       %div#img
       %p#title
-        %label タイトル：
+        %label #{t 'detail.title'}：
         %span
       %p#authors
-        %label 著 者 名：
+        %label #{t 'detail.author'}：
         %span
       %p#publisher
-        %label 出 版 社：
+        %label #{t 'detail.publisher'}：
         %span
     #stock.left.notice.warning
       %i.icon-spinner.icon-large
-      %span 在庫検索中..
+      %span #{t 'result.searching_stocks'}
       %span
   .col_8
     %img(src="../img/map.gif")

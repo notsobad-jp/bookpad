@@ -1,0 +1,26 @@
+en:
+  meta:
+    keywords: BOOK PAD,book,stock search,book store,search device,iPad
+    description: BOOK PAD is an iPad based book searching system for book stores.
+    title: BOOK PAD | iPad based book searching system for book stores.
+
+  search:
+    placeholder: Title, Author or Publisher name
+    button: Search
+
+  breadcrumb:
+    home: Home
+    result: Search Result
+    detail: Book Detail
+
+  result:
+    no_author: (Author not found.)
+    searching_stocks: Confirming stocks..
+    see_detail: See details
+    no_detail: No details available
+
+  detail:
+    title: Title
+    author: Author
+    publisher: Publisher
+

@@ -162,6 +162,7 @@ DEPENDENCIES
   compass
   foreman
   haml
+  i18n
   iconv
   mechanize
   newrelic_rpm

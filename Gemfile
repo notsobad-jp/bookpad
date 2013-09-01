@@ -11,6 +11,7 @@ gem 'foreman'
 gem 'thin'
 gem 'newrelic_rpm'
 gem 'haml'
+gem 'i18n'
 
 group :development do
 	gem 'pry'

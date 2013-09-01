@@ -1,9 +1,9 @@
 %section#breadcrumb
   %ul.breadcrumb
     %li
-      %a(href="#") ホーム
+      %a(href="#") #{t 'breadcrumb.home'}
     %li
-      %a(href="#") 検索結果
+      %a(href="#") #{t 'breadcrumb.result'}
     %li#last_bread_2
       %a(href="#") 　
 
@@ -25,11 +25,12 @@
         %p
           %strong #{res["title"]}
           %br
-          (#{res["author"] || "著者名なし"})
+          - author = res['author'] || t('result.no_author')
+          (#{author})
 
       %div.left.notice.warning
         %i.icon-spinner.icon-large
-        %span 在庫検索中..
+        %span #{t 'result.searching_stocks'}
 
       %div.book_data.hide
         %ul
@@ -44,8 +45,8 @@
         - if isbn
           %a(href="/detail/#{isbn}" class="button pjax")
             %i(class="icon-zoom-in icon-large")
-            詳細を見る
+            = t 'result.see_detail'
         - else
           %a(href="#" class="button disabled")
             %i(class="icon-zoom-in icon-large")
-            詳細情報なし
+            = t 'result.no_detail'

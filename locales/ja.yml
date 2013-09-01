@@ -1,0 +1,26 @@
+ja:
+  meta:
+    keywords: BOOK PAD,本,在庫検索,本屋,書店,検索端末,iPad
+    description: BOOK PADは、iPadを利用した書店の店頭設置用在庫検索端末です
+    title: BOOK PAD | 本屋さんの在庫検索端末
+
+  search:
+    placeholder: 本のタイトル、著者名、出版社名など
+    button: Search
+
+  breadcrumb:
+    home: ホーム
+    result: 検索結果
+    detail: 本の詳細
+
+  result:
+    no_author: (著者名不明)
+    searching_stocks: 在庫検索中..
+    see_detail: 詳細を見る
+    no_detail: 詳細情報なし
+
+  detail:
+    title: タイトル
+    author: 著 者 名
+    publisher: 出 版 社
+

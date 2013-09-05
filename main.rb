@@ -13,6 +13,8 @@ configure :production do
   require 'newrelic_rpm'
 end
 
+#標準出力をバッファせず表示
+STDOUT.sync = true
 
 #PJAX判定
 class Sinatra::Request
@@ -31,26 +33,26 @@ helpers do
 	alias_method :h, :escape_html
 
   def get_locale
-    # Pulls the browser's language
-    @env["HTTP_ACCEPT_LANGUAGE"][0,2]
+    @env["HTTP_ACCEPT_LANGUAGE"][0,2]  # Pulls the browser's language
   end
 
   def t(*args)
-    # Just a simple alias
-    I18n.t(*args)
+    I18n.t(*args)  # Just a simple alias
   end
 end
 
 
 #トップページ
 get '/' do
+	puts "@[bookpad_staging.logs] #{{'keyword'=>"hoge"}.to_json}"
 	haml :index
 end
 
 
 #検索結果画面
 get '/search/:keyword' do
-	@result = book_search(params[:keyword], max_result=6)
+	encoded_keyword = URI.escape(params[:keyword])
+	@result = book_search(encoded_keyword, max_result=6)
 	haml :search, :layout => !request.pjax?
 end
 
@@ -79,13 +81,11 @@ end
 
 #キーワードから本を検索
 def book_search(keyword, max_result)
-	encoded_keyword = URI.escape(keyword)
-
 	#GoogleBooksAPI
 	# uri = URI.parse("https://www.googleapis.com/books/v1/volumes?q=#{encoded_keyword}&maxResults=#{max_result}&country=JP")
 
 	#RakutenBooksAPI
-	uri = URI.parse("https://app.rakuten.co.jp/services/api/BooksTotal/Search/20130522?format=json&keyword=#{encoded_keyword}&booksGenreId=000&hits=#{max_result}&applicationId=#{ENV['RAKUTEN_KEY']}")
+	uri = URI.parse("https://app.rakuten.co.jp/services/api/BooksTotal/Search/20130522?format=json&keyword=#{keyword}&booksGenreId=000&hits=#{max_result}&applicationId=#{ENV['RAKUTEN_KEY']}")
 
 	json = Net::HTTP.get(uri)
 	@result = JSON.parse(json)

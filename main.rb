@@ -44,6 +44,7 @@ end
 
 #トップページ
 get '/' do
+	puts "@[bookpad_staging.keywords] #{{'keyword'=>"hoge"}.to_json}"  #TDにログ記録
 	haml :index
 end
 

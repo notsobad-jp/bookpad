@@ -157,6 +157,12 @@ $(function(){
 				}
 
 				//TODO: WebStorageにないときはGoogleAPIをISBNで叩きにいく
+
+				//検索結果をTreasureDataにログ記録
+				var stocked = data["stock"] ? 1 : 0;
+				$.ajax({
+					url: "/log_stock/" + isbn + "/" + stocked
+				});
 			}
 		});
 	});

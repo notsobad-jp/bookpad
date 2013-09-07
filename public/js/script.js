@@ -159,9 +159,10 @@ $(function(){
 				//TODO: WebStorageにないときはGoogleAPIをISBNで叩きにいく
 
 				//検索結果をTreasureDataにログ記録
+				//TODO: パラメータのエスケープ
 				var stocked = data["stock"] ? 1 : 0;
 				$.ajax({
-					url: "/log_stock/" + isbn + "/" + stocked
+					url: "/log_stock/" + isbn + "/" + data["title"] + "/"+ stocked
 				});
 			}
 		});

@@ -80,8 +80,8 @@ get '/stock_search/:isbn' do
 end
 
 #在庫検索結果をTreasureDataにログ記録(ajaxで呼び出し)
-get '/log_stock/:isbn/:stocked' do
-	puts "@[bookpad_#{ENV["RACK_ENV"]}.stocks] #{{'isbn'=>params[:isbn], 'stocked'=>params[:stocked]}.to_json}"  #TDにログ記録
+get '/log_stock/:isbn/:title/:stocked' do
+	puts "@[bookpad_#{ENV["RACK_ENV"]}.stocks] #{{'isbn'=>params[:isbn], 'title'=>params[:title], 'stocked'=>params[:stocked]}.to_json}"  #TDにログ記録
 end
 
 

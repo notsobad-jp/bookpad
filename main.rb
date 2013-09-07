@@ -73,7 +73,7 @@ end
 #お店の在庫検索(ajaxで呼び出し)
 get '/stock_search/:isbn' do
 	return false if params[:isbn].nil?
-	store_id = 3  #TODO: ログイン情報に応じて検索店舗を変える
+	store_id = 4  #TODO: ログイン情報に応じて検索店舗を変える
 	@stock = stock_search(params[:isbn], store_id)
 
 	return @stock
@@ -101,7 +101,7 @@ end
 #在庫検索
 def stock_search(isbn, store_id)
 	case store_id
-	when 1 #東大生協(本郷)
+	when 1 #三省堂書店
 		mech = Mechanize.new
 		mech.post('https://www.coopbooknavi.jp/zaik/book_search_result.php', {'isbn'=>isbn, "and_or"=>"1", "ten_sel"=>"13036", "search"=>"1"})
 		links = mech.page.links
@@ -120,5 +120,14 @@ def stock_search(isbn, store_id)
 		mech.get("http://jinbou.books-sanseido.co.jp/jinbou/bookTownJinbou.do?syISBN=#{isbn}")
 		stock_info = mech.page.at("table[3]").at("table[3]").at("tr[3]").at("td[3]").at("p").inner_text
 		@stock = (stock_info.empty?) ? nil : stock_info.gsub(".", ", ")
+	when 4 #東大生協(本郷)
+		mech = Mechanize.new
+		mech.post('https://www.coopbooknavi.jp/zaik/book_search_result.php', {'isbn'=>isbn, "and_or"=>"1", "ten_sel"=>"13036", "search"=>"1"})
+		links = mech.page.links
+		@page = Array.new
+		links.each do |link|
+			@page.push(link) if link.href.index("hng")
+		end
+		@stock = (@page.empty?) ? nil : @page.join(',')
 	end
 end

@@ -34,14 +34,34 @@ ul {
 section { margin-bottom: 50px !important; }
 
 .headline {
-	text-align: left;
 	font-size: x-large;
 	font-weight: normal;
-	color: $color-green;
-	margin-bottom: 20px;
-	border-left: 8px double $color-orange;
-	padding-left: 8px;
-	margin-left: 10px;
+	margin-bottom: 30px;
+	color: #555;
+
+	$circle-size: 20px;
+	&:before {
+		content: '';
+		display: inline-block;
+		margin-right: 10px;
+
+		width: $circle-size;
+		height: $circle-size;
+		background: #CCC;
+		@include border-radius($circle-size/2);
+		-webkit-box-reflect: left;
+	}
+	&:after {
+		content: '';
+		display: inline-block;
+		margin-left: 10px;
+
+		width: $circle-size;
+		height: $circle-size;
+		background: #CCC;
+		@include border-radius($circle-size/2);
+		-webkit-box-reflect: right;
+	}
 }
 
 .grid { max-width: 100%; }
@@ -127,6 +147,7 @@ header {
 *****************************************************************/
 #popular {
 	text-align: center;
+	overflow: hidden;
 	.bx-viewport {
 		box-shadow: none;
 		border: none;

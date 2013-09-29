@@ -132,16 +132,16 @@ def stock_search(isbn, store_id)
 	when 5 #民間図書館(ちばぎんざ)
 		mech = Mechanize.new
 		begin
-			@stock = nil
+			stocked = false
 			mech.get("http://librarylife.net/search_detail.aspx?isbn13=#{isbn}")
 			stocks = mech.page.at("table#ctl00_ContentPlaceHolder1_GridView1").search("tr")
 			stocks.each_with_index do |stock, i|
 				next if i==0 #見出し行はスキップ
-				@stock = stock.at("td[3]").inner_text if stock.at("td[2]").inner_text ==  "ふなばし駅前"
+				stocked = true if stock.at("td[3]").inner_text=='開架' && stock.at("td[2]").inner_text=="ちばぎんざ図書館"
 			end
+			@stock = '開架' if stocked
 		rescue
 			@stock = nil
 		end
-		p @stock
 	end
 end

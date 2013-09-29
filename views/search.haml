@@ -20,7 +20,7 @@
           - if res['mediumImageUrl'].nil?
             %div.no_img No Image..
           - else
-            - img_link = res['mediumImageUrl']
+            - img_link = res['largeImageUrl']
             %img(src="#{img_link}")
         %p
           %strong #{res["title"]}

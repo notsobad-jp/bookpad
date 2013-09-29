@@ -147,7 +147,8 @@ $(function(){
 					if(data["stock"]){
 						$("#stock").removeClass("warning").addClass("success");
 						$("#stock i").removeClass("icon-spinner").addClass("icon-ok-sign");
-						$("#stock span").eq(0).text("棚番号：");
+						//$("#stock span").eq(0).text("棚番号：");
+						$("#stock span").eq(0).text("");
 						$("#stock span").eq(1).text(data["stock"]);
 					}else {
 						$("#stock").removeClass("warning").addClass("error");

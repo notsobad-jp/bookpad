@@ -73,7 +73,7 @@ end
 #お店の在庫検索(ajaxで呼び出し)
 get '/stock_search/:isbn' do
 	return false if params[:isbn].nil?
-	store_id = 4  #TODO: ログイン情報に応じて検索店舗を変える
+	store_id = 5  #TODO: ログイン情報に応じて検索店舗を変える
 	@stock = stock_search(params[:isbn], store_id)
 
 	return @stock
@@ -129,5 +129,19 @@ def stock_search(isbn, store_id)
 			@page.push(link) if link.href.index("hng")
 		end
 		@stock = (@page.empty?) ? nil : @page.join(',')
+	when 5 #民間図書館(ちばぎんざ)
+		mech = Mechanize.new
+		begin
+			@stock = nil
+			mech.get("http://librarylife.net/search_detail.aspx?isbn13=#{isbn}")
+			stocks = mech.page.at("table#ctl00_ContentPlaceHolder1_GridView1").search("tr")
+			stocks.each_with_index do |stock, i|
+				next if i==0 #見出し行はスキップ
+				@stock = stock.at("td[3]").inner_text if stock.at("td[2]").inner_text ==  "ふなばし駅前"
+			end
+		rescue
+			@stock = nil
+		end
+		p @stock
 	end
 end

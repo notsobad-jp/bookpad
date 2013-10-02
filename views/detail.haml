@@ -30,4 +30,9 @@
       %span #{t 'result.searching_stocks'}
       %span
   .col_8
-    %img(src="../img/map.gif")
+    %h2.headline 全館在庫状況
+    %table
+      - @stocks.each_with_index do |stock, i|
+        %tr
+          %td
+            = stock

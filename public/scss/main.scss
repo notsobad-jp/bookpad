@@ -12,7 +12,6 @@ $color-green: #336774;
 * COMMON
 *****************************************************************/
 body {
-	// background: url("../img/bg_all.png");
 	font: 80%/19px Helvetica, Arial, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', sans-serif !important;
 	letter-spacing: 0.1em !important;
   color: $color-black;
@@ -203,6 +202,19 @@ header {
 			max-height: 100%;
 			max-width: 100%;
 		}
+	}
+
+	table {
+		tr:nth-child(2n-1) {
+			display: none;
+		}
+		th b {
+			color: #fff;
+		}
+	}
+
+	h2.headline {
+		margin: 0 0 10px 20px;
 	}
 }
 

@@ -60,6 +60,8 @@ end
 
 #書籍詳細画面
 get '/detail/:isbn' do
+	store_id = 6 #民間図書館の全店舗検索
+	@stocks = stock_search(params[:isbn], store_id)
 	haml :detail, :layout => !request.pjax?
 end
 
@@ -142,6 +144,14 @@ def stock_search(isbn, store_id)
 			@stock = '開架' if stocked
 		rescue
 			@stock = nil
+		end
+	when 6 #民間図書館(全店舗検索)
+		mech = Mechanize.new
+		begin
+			mech.get("http://librarylife.net/search_detail.aspx?isbn13=#{isbn}")
+			@stocks = mech.page.at("table#ctl00_ContentPlaceHolder1_GridView1").search("tr")
+		rescue
+			@stocks = nil
 		end
 	end
 end

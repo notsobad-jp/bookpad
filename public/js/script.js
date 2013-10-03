@@ -1,8 +1,8 @@
 $(function(){
 	//画面外スクロールでビョンビョンするの禁止
-	$(document).on('touchmove', function(e){
-		e.preventDefault();
-	});
+	// $(document).on('touchmove', function(e){
+	// 	e.preventDefault();
+	// });
 
 	//検索ワード入れたら検索ボタンのリンクに追加
 	$("#search input[name='keyword']").bind('change blur click', function(){
